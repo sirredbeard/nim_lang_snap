@@ -1,4 +1,4 @@
-name: edge
+name: nightly
 on: [push]
 jobs:
   build:
