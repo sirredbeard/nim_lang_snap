@@ -1,0 +1,43 @@
+name: nim-lang-lts-1
+summary: Nim programming language, compiler, and other tools.
+description: |
+  Nim is a compiled, garbage-collected systems programming language with 
+  a design that focuses on efficiency, expressiveness, and elegance.
+version: VERSION
+base: core18
+grade: stable
+confinement: strict
+
+apps:
+  nim:
+    command: nim
+  nimble:
+    command: nimble
+  nimcsources:
+    command: nim_csources
+  nimfind:
+    command: nimfind
+  nimgdb:
+    command: nim-gdb
+  nimgrep:
+    command: nimgrep
+  nimpretty:
+    command: nimpretty
+  nimsuggest:
+    command: nimsuggest
+  testament:
+    command: testament
+
+parts:
+  nim-build:
+    source: RELEASEURL
+    source-type: tar
+    plugin: autotools
+    override-build: |
+      ls -a
+      sh build_all.sh
+      bin/nim c koch
+      ./koch tools
+    build-packages:
+      - gcc
+      - git
