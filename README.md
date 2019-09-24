@@ -16,20 +16,32 @@ This repository is a set of GitHub Actions and Snapcraft snap templates that aut
 
 # Files
 
+## Snap Templates
+
 /stable/snap/
 
-* snapcraft.yml - nim stable snap file template (updated by data from lastversion in stable.yaml)
+* snapcraft.yml - nim stable snap file template (updated by data from lastversion in stable.yml)
 
 /lts-1/snap/
 
-* snapcraft.yml - nim lts 1 branch snap file (updated by data from lastversion in stable.yaml)
+* snapcraft.yml - nim lts 1 branch snap file (updated by data from GitHub API in lts-1.yml)
 
 /edge/snap/
 
 * snapcraft.yml - nim nightly snap file
 
+## GitHub Actions
+
 /github/workflows
 
 * stable.yml - pushes nim stable release snap to snap store
+
+  * gets latest release using [lastversion](https://github.com/dvershinin/lastversion)
+
 * lts-1.yml - pushes nim lts 1 branch snap to snap store
+
+  * gets latest 1.0.x using curl, jq, and awk
+
 * edge.yml - pushes nim nightly snap to snap store
+
+  * gets latest code directly from the development branch of the nim GitHub repository
