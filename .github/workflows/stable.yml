@@ -1,0 +1,22 @@
+name: stable
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: snapcore/snapcraft
+    steps:
+    - uses: actions/checkout@v1
+    - name: Prepare
+      run: |
+        snap refresh
+        snap install core18
+    - name: Configure
+      run: |
+        pip3 install -U pip
+        pip3 install lastversion
+        # get latest release info
+    - name: Build
+      run: |
+        cd stable
+        #snapcraft
