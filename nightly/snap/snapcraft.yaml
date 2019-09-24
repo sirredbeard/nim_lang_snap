@@ -39,7 +39,9 @@ parts:
       ls -a bin/
       rm bin/empty.txt
       chmod u+x bin/*
+      mkdir $SNAPCRAFT_PART_INSTALL/usr/bin
       mv bin/* $SNAPCRAFT_PART_INSTALL/usr/bin/*
+      ls -a $SNAPCRAFT_PART_INSTALL/usr/bin/*
     build-packages:
       - gcc
       - git
