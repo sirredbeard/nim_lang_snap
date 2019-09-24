@@ -12,4 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build
-      run: sh build_all.sh
+      run: |
+        cd edge
+        snapcraft
