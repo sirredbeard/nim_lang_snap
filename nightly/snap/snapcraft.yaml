@@ -10,23 +10,23 @@ confinement: strict
 
 apps:
   nim:
-    command: nim
+    command: bin/nim
   nimble:
-    command: nimble
+    command: bin/nimble
   nimcsources:
-    command: nim_csources
+    command: bin/nim_csources
   nimfind:
-    command: nimfind
+    command: bin/nimfind
   nimgdb:
-    command: nim-gdb
+    command: bin/nim-gdb
   nimgrep:
-    command: nimgrep
+    command: bin/nimgrep
   nimpretty:
-    command: nimpretty
+    command: bin/nimpretty
   nimsuggest:
-    command: nimsuggest
+    command: bin/nimsuggest
   testament:
-    command: testament
+    command: bin/testament
 
 parts:
   nim-build:
@@ -36,7 +36,16 @@ parts:
       sh build_all.sh
       rm bin/empty.txt
       chmod u+x bin/*
-      mv bin/* "$SNAPCRAFT_PART_INSTALL"/
+      mkdir "$SNAPCRAFT_PART_INSTALL"/bin/
+      ls -a bin/*
+      mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin/
+      ls -a "$SNAPCRAFT_PART_INSTALL"/bin/*
+      mkdir "$SNAPCRAFT_PART_INSTALL"/config/
+      mv config/* "$SNAPCRAFT_PART_INSTALL"/
+      mkdir "$SNAPCRAFT_PART_INSTALL"/lib/
+      mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib/
+      mkdir "$SNAPCRAFT_PART_INSTALL"/doc/
+      mv doc/* "$SNAPCRAFT_PART_INSTALL"/doc/
     build-packages:
       - gcc
       - git
