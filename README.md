@@ -24,11 +24,15 @@ Recommended for most users.
 
 Install from the command line with: `$ snap install nim-lang`
 
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/nim-lang)
+
 Or visit the [Snapcraft Store](https://snapcraft.io/nim-lang).
 
 See [Installing Snapd](https://snapcraft.io/docs/installing-snapd) if you do not have snap installed.
 
 ![stable status](https://github.com/sirredbeard/nim_lang_snap/workflows/stable/badge.svg)
+
+[![nim-lang](https://snapcraft.io/nim-lang/badge.svg)](https://snapcraft.io/nim-lang)
 
 ### LTS 1.0.x
 
@@ -40,6 +44,8 @@ Recommended for Nim applications targeted to the [LTS 1.0.x LTS branch](https://
 
 ![lts status](https://github.com/sirredbeard/nim_lang_snap/workflows/lts-1/badge.svg)
 
+[![nim-lang-lts-1](https://snapcraft.io/nim-lang-lts-1/badge.svg)](https://snapcraft.io/nim-lang-lts-1)
+
 ### Nightly
 
 Recommended for testing nightly builds of Nim. Likely contains bugs.
@@ -49,6 +55,8 @@ Recommended for testing nightly builds of Nim. Likely contains bugs.
 [Snapcraft Store](https://snapcraft.io/nim-lang-nightly)
 
 ![nightly status](https://github.com/sirredbeard/nim_lang_snap/workflows/nightly/badge.svg)
+
+[![nim-lang-nightly](https://snapcraft.io/nim-lang-nightly/badge.svg)](https://snapcraft.io/nim-lang-nightly)
 
 ## Files
 
