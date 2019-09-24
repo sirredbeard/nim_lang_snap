@@ -10,7 +10,7 @@ confinement: strict
 
 apps:
   nim:
-    command: /bin/nim
+    command: bin/nim
   nimble:
     command: bin/nimble
   nimcsources:
