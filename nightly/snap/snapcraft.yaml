@@ -33,14 +33,10 @@ parts:
     plugin: dump
     source: https://github.com/nim-lang/Nim.git
     override-build: |
-      ls -a
-      echo 'running build_all.sh'
       sh build_all.sh
-      ls -a bin/
       rm bin/empty.txt
       chmod u+x bin/*
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/
-      ls -a "$SNAPCRAFT_PART_INSTALL"/
     build-packages:
       - gcc
       - git

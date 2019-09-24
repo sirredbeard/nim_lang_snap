@@ -20,17 +20,19 @@ A snap is a bundle of an app and its dependencies that works without modificatio
 
 ### Stable
 
-Recommended for most users
+Recommended for most users.
 
-`$ snap install nim-lang`
+Install from the command line with: `$ snap install nim-lang`
 
-[Snapcraft Store](https://snapcraft.io/nim-lang)
+Or visit the [Snapcraft Store](https://snapcraft.io/nim-lang).
+
+See [Installing Snapd](https://snapcraft.io/docs/installing-snapd) if you do not have snap installed.
 
 ![stable status](https://github.com/sirredbeard/nim_lang_snap/workflows/stable/badge.svg)
 
 ### LTS 1.0.x
 
-Recommended for Nim applications targeted to the LTS 1.0.x LTS branch
+Recommended for Nim applications targeted to the [LTS 1.0.x LTS branch](https://nim-lang.org/blog/2019/09/23/version-100-released.html).
 
 `$ snap install nim-lang-lts-1`
 
@@ -40,7 +42,7 @@ Recommended for Nim applications targeted to the LTS 1.0.x LTS branch
 
 ### Nightly
 
-Recommended for testing nightly builds of Nim. Likely contains bugs
+Recommended for testing nightly builds of Nim. Likely contains bugs.
 
 `$ snap install nim-lang-nightly`
 

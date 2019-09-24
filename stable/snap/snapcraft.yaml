@@ -38,8 +38,8 @@ parts:
       bin/nim c koch
       ./koch tools
       rm bin/empty.txt
+      chmod u+x bin/*
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/
-      ls -a "$SNAPCRAFT_PART_INSTALL"/
     build-packages:
       - gcc
       - git

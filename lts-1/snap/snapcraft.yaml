@@ -34,15 +34,12 @@ parts:
     source-type: tar
     plugin: autotools
     override-build: |
-      ls -a
       sh build_all.sh
       bin/nim c koch
       ./koch tools
-      ls -a bin/
       rm bin/empty.txt
       chmod u+x bin/*
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/
-      ls -a "$SNAPCRAFT_PART_INSTALL"/
     build-packages:
       - gcc
       - git
