@@ -31,7 +31,10 @@ apps:
 parts:
   nim-build:
     source: RELEASEURL
+    source-type: tar
+    plugin: autotools
     override-build: |
+      ls -a
       sh build.sh
       bin/nim c koch
       ./koch tools
