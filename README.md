@@ -29,7 +29,7 @@ Recommended for Nim applications targeted to the LTS 1.0.x LTS branch
 
 ![lts status](https://github.com/sirredbeard/nim_lang_snap/workflows/lts-1/badge.svg)
 
-### Nightly 
+### Nightly
 
 Recommended for testing nightly builds of Nim. Likely contains bugs
 
