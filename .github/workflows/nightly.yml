@@ -1,5 +1,10 @@
 name: nightly
-on: [push]
+on:
+  push:
+    branches:
+    - master
+  schedule:
+   - cron: 0 22 * * *
 jobs:
   build:
     runs-on: ubuntu-latest
