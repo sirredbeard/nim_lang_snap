@@ -71,8 +71,15 @@ Recommended for testing nightly builds of Nim. Likely contains bugs
 
 ## Usage
 
+### Installation
+
+`$ snap install nim-lang`
+
+### Binaries
+
 Once installed, Stable binaries can be called as:
 
+```bash
 nim-lang.nim
 nim-lang.nimcsources
 nim-lang.nimgdb
@@ -82,11 +89,15 @@ nim-lang.nimble
 nim-lang.nimfind
 nim-lang.nimgrep
 nim-lang.nimsuggest
+```
 
 Nightly will be nim-lang-night.* and LTS will be nim-lang-lts-1.*.
 
+### Aliases
+
 You can use snap to create aliases for more common names:
 
+```bash
 sudo bash -c 'snap alias nim-lang.nim nim ;\
     snap alias nim-lang.nimcsources nimcsources ;\
     snap alias nim-lang.nimgdb nimgdb ;\
@@ -96,3 +107,4 @@ sudo bash -c 'snap alias nim-lang.nim nim ;\
      snap alias nim-lang.nimfind nimfind ;\
      snap alias nim-lang.nimgrep nimgrep ;\
      snap alias nim-lang.nimsuggest nimsuggest'
+```
