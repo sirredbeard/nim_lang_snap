@@ -11,3 +11,19 @@ jobs:
       run: |
         cd edge
         snapcraft
+#    - uses: actions/upload-artifact@master
+#      with:
+#        name: snap
+#        path: *.snap
+#
+#  push:
+#    runs-on: ubuntu-latest
+#    container:
+#      image: snapcore/snapcraft
+#    steps:
+#      - uses: actions/download-artifact@master
+#        with:
+#          name: snap
+#      - run: |
+#         ls *.snap
+#         snapcraft push --release=stable *.snap
