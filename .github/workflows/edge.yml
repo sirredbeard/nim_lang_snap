@@ -7,10 +7,6 @@ jobs:
       image: snapcore/snapcraft
     steps:
     - uses: actions/checkout@v1
-    - name: Prepare
-      run: |
-        snap refresh
-        snap install core18
     - name: Build
       run: |
         cd edge
