@@ -10,7 +10,6 @@ jobs:
     - name: Configure
       run: |
         apt-get install python3-pip -y
-        pip3 install -U pip
         pip3 install lastversion
         # get latest release info
     - name: Build
