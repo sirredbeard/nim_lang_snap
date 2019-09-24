@@ -12,21 +12,21 @@ apps:
   nim:
     command: /bin/nim
   nimble:
-    command: /bin/nimble
+    command: bin/nimble
   nimcsources:
-    command: /bin/nim_csources
+    command: bin/nim_csources
   nimfind:
-    command: /bin/nimfind
+    command: bin/nimfind
   nimgdb:
-    command: /bin/nim-gdb
+    command: bin/nim-gdb
   nimgrep:
-    command: /bin/nimgrep
+    command: bin/nimgrep
   nimpretty:
-    command: /bin/nimpretty
+    command: bin/nimpretty
   nimsuggest:
-    command: /bin/nimsuggest
+    command: bin/nimsuggest
   testament:
-    command: /bin/testament
+    command: bin/testament
 
 parts:
   nim-build:
@@ -40,7 +40,9 @@ parts:
       rm bin/empty.txt
       chmod u+x bin/*
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin/
+      ls -a bin/*
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin/
+      ls -a "$SNAPCRAFT_PART_INSTALL"/bin/*
       mkdir "$SNAPCRAFT_PART_INSTALL"/config/
       mv config/* "$SNAPCRAFT_PART_INSTALL"/
       mkdir "$SNAPCRAFT_PART_INSTALL"/lib/
