@@ -44,5 +44,3 @@ parts:
     build-packages:
       - gcc
       - git
-    stage-packages:
-      - libc6

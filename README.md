@@ -5,7 +5,16 @@ This repository is a set of GitHub Actions and Snapcraft snap templates that aut
 
 Nim is a compiled, garbage-collected systems programming language with a design that focuses on efficiency, expressiveness, and elegance.
 
-* [Learn Nim](https://nim-lang.org/learn.html)
+* [Learn Nim](https://nim-lang.org/learn.html) - Tutorial
+* [Documentation](https://nim-lang.org/documentation.html) - Documentation
+* [Nim in Action](https://www.manning.com/books/nim-in-action) - Book from Manning Publications
+* [What Is Nim? A brief introduction to the Nim programming language](https://www.youtube.com/watch?v=nKTLsUF9oyU) - YouTube video
+
+A snap is a bundle of an app and its dependencies that works without modification across many different Linux distributions.
+
+* [Getting Started](https://snapcraft.io/docs/getting-started) - Tutorial
+* [Documentation](https://snapcraft.io/docs) - Documentation
+* [Snapcraft Store](https://snapcraft.io/store) - Snap app store
 
 ## Branches
 
@@ -19,7 +28,7 @@ Recommended for most users
 
 ![stable status](https://github.com/sirredbeard/nim_lang_snap/workflows/stable/badge.svg)
 
-### LTS 1.0.x Branch
+### LTS 1.0.x
 
 Recommended for Nim applications targeted to the LTS 1.0.x LTS branch
 
@@ -68,6 +77,8 @@ Recommended for testing nightly builds of Nim. Likely contains bugs
 /nightly/snap/
 
 * [snapcraft.yml](https://github.com/sirredbeard/nim_lang_snap/blob/master/nightly/snap/snapcraft.yaml) - nim nightly snap file
+
+For more information, see [my blog post](boxofcables.dev/snaps-for-nim/) on this project.
 
 ## Usage
 
