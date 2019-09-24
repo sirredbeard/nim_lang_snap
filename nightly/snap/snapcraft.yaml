@@ -1,4 +1,4 @@
-name: nim-lang
+name: nim-lang-nightly
 summary: Nim programming language, compiler, and other tools.
 description: |
   Nim is a compiled, garbage-collected systems programming language with 
