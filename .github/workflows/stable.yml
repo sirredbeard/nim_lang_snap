@@ -9,9 +9,13 @@ jobs:
     - uses: actions/checkout@v1
     - name: Configure
       run: |
-        apt-get install python3-pip -y
-        pip3 install lastversion
-        # get latest release info
+        apt-get install python3-pip python3-setuptools python3-wheel -y
+        useradd temp
+        su temp -c "pip3 install lastversion"
+        VERSION=$(su temp -c "~/.local/bin/lastversion nim-lang/Nim")
+        RELEASEURL=$(su temp -c "~/.local/bin/lastversion --assets nim-lang/Nim")
+        sed -i "s/VERSION/$VERSION/g" "stable/snap/snapcraft.yaml"
+        sed -i "s/RELEASEURL/$RELEASEURL/g" "stable/snap/snapcraft.yaml"
     - name: Build
       run: |
         cd stable
