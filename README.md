@@ -41,32 +41,58 @@ Recommended for testing nightly builds of Nim. Likely contains bugs
 
 ## Files
 
-### Snap Templates
-
-/stable/snap/
-
-* snapcraft.yml - nim stable snap file template (updated by data from lastversion in stable.yml)
-
-/lts-1/snap/
-
-* snapcraft.yml - nim lts 1 branch snap file (updated by data from GitHub API in lts-1.yml)
-
-/nightly/snap/
-
-* snapcraft.yml - nim nightly snap file
-
 ### GitHub Actions
 
 /github/workflows
 
-* stable.yml - pushes nim stable release snap to snap store
+* [stable.yml](https://github.com/sirredbeard/nim_lang_snap/tree/master/.github/workflows) - pushes nim stable release snap to snap store
 
   * gets latest release using [lastversion](https://github.com/dvershinin/lastversion)
 
-* lts-1.yml - pushes nim lts 1 branch snap to snap store
+* [lts-1.yml](https://github.com/sirredbeard/nim_lang_snap/tree/master/.github/workflows) - pushes nim lts 1 branch snap to snap store
 
   * gets latest 1.0.x using curl, jq, and awk directly from the GitHub API
 
-* nightly.yml - pushes nim nightly snap to snap store
+* [nightly.yml](https://github.com/sirredbeard/nim_lang_snap/blob/master/.github/workflows/nightly.yml) - pushes nim nightly snap to snap store
 
-  * gets latest Nim code directly from the development branch of the nim GitHub repository
+### Snap Templates
+
+/stable/snap/
+
+* [snapcraft.yml](https://github.com/sirredbeard/nim_lang_snap/blob/master/stable/snap/snapcraft.yaml) - nim stable snap file template (updated by data from lastversion in stable.yml)
+
+/lts-1/snap/
+
+* [snapcraft.yml](https://github.com/sirredbeard/nim_lang_snap/blob/master/lts-1/snap/snapcraft.yaml) - nim lts 1 branch snap file (updated by data from GitHub API in lts-1.yml)
+
+/nightly/snap/
+
+* [snapcraft.yml](https://github.com/sirredbeard/nim_lang_snap/blob/master/nightly/snap/snapcraft.yaml) - nim nightly snap file
+
+## Usage
+
+Once installed, Stable binaries can be called as:
+
+nim-lang.nim
+nim-lang.nimcsources
+nim-lang.nimgdb
+nim-lang.nimpretty
+nim-lang.testament
+nim-lang.nimble
+nim-lang.nimfind
+nim-lang.nimgrep
+nim-lang.nimsuggest
+
+Nightly will be nim-lang-night.* and LTS will be nim-lang-lts-1.*.
+
+You can use snap to create aliases for more common names:
+
+sudo bash -c 'snap alias nim-lang.nim nim ;\
+    snap alias nim-lang.nimcsources nimcsources ;\
+    snap alias nim-lang.nimgdb nimgdb ;\
+    snap alias nim-lang.nimpretty nimpretty ;\
+     snap alias nim-lang.testament testament ;\
+     snap alias nim-lang.nimble nimble ;\
+     snap alias nim-lang.nimfind nimfind ;\
+     snap alias nim-lang.nimgrep nimgrep ;\
+     snap alias nim-lang.nimsuggest nimsuggest'
