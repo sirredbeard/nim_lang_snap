@@ -26,4 +26,4 @@ jobs:
 #          name: snap
 #      - run: |
 #         ls *.snap
-#         snapcraft push --release=stable *.snap
+#         snapcraft push --release=devel *.snap
