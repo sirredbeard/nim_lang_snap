@@ -6,6 +6,14 @@ This repository is a set of GitHub Actions and Snapcraft snap templates that aut
 * [Learn Nim](https://nim-lang.org/learn.html)
 * Snapcraft: [Stable](https://snapcraft.io/nim-lang), [LTS 1](https://snapcraft.io/nim-lang-lts-1), [Nightly](https://snapcraft.io/nim-lang-nightly)
 
+# Status
+
+* Stable ![](https://github.com/sirredbeard/nim_lang_snap/workflows/stable/badge.svg)
+
+* LTS 1 ![](https://github.com/sirredbeard/nim_lang_snap/workflows/lts-1/badge.svg)
+
+* Nightly ![](https://github.com/sirredbeard/nim_lang_snap/workflows/edge/badge.svg)
+
 # Files
 
 /stable/snap/
