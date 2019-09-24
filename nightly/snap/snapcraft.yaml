@@ -33,13 +33,17 @@ parts:
     plugin: dump
     source: https://github.com/nim-lang/Nim.git
     override-build: |
+      ls -a
       echo 'running build_all.sh'
       sh build_all.sh
+      ls -a bin/
+      chmod u+x bin/*
+      mv bin/* /usr/bin/*
     build-packages:
       - gcc
       - git
-    filesets:
-      bin:
-      - bin/*
-    stage: [$bin]
-    prime: [$bin]
+#    filesets:
+#      bin:
+#      - bin/*
+#    stage: [$bin]
+#    prime: [$bin]

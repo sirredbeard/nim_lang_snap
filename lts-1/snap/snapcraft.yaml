@@ -38,6 +38,9 @@ parts:
       sh build_all.sh
       bin/nim c koch
       ./koch tools
+      ls -a bin/
+      chmod u+x bin/*
+      mv bin/* /usr/bin/*
     build-packages:
       - gcc
       - git
