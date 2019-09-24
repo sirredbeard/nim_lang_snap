@@ -35,7 +35,7 @@ parts:
     plugin: autotools
     override-build: |
       ls -a
-      sh build.sh
+      sh build_all.sh
       bin/nim c koch
       ./koch tools
     build-packages:
