@@ -27,13 +27,13 @@ jobs:
         cd stable
         snapcraft
         ls -a
-        mv nim-lang_*_amd64.snap ~/nim-lang_amd64.snap
+        mv nim-lang_*_amd64.snap /home/runner/work/nim_lang_snap/nim_lang_snap/nim-lang_amd64.snap
         ls -a
-        ls -a ~
+        ls -a /home/runner/work/nim_lang_snap/nim_lang_snap/
     - uses: actions/upload-artifact@master
       with:
         name: snap
-        path: ~/nim-lang_amd64.snap
+        path: /home/runner/work/nim_lang_snap/nim_lang_snap/nim-lang_amd64.sna
 
   push:
     runs-on: ubuntu-latest
