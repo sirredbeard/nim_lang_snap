@@ -10,8 +10,10 @@ jobs:
     - name: Configure
       run: |
         sudo apt-get install jq -y
-        VERSION=$(curl --silent "https://api.github.com/repos/nim-lang/Nim/tags" | jq '.[].name' | grep 'v1.0.' | awk 'min == "" || $1<min{min=$1} $1>max{max=$1} END{print max}' | tr -d '"')
+        VERSION=$(curl --silent "https://api.github.com/repos/nim-lang/Nim/tags" | jq '.[].name' | grep 'v1.0.' | awk 'min == "" || $1<min{min=$1} $1>max{max=$1} END{print max}' | tr -d 'v' | tr -d '"')
         RELEASEURL="https://github.com/nim-lang/Nim/archive/"$VERSION".tar.gz"
+        echo $VERSION
+        echo $RELEASEURL
         sed -i "s/VERSION/$VERSION/g" "lts-1/snap/snapcraft.yaml"
         sed -i "s*RELEASEURL*$RELEASEURL*g" "lts-1/snap/snapcraft.yaml"
     - name: Build
