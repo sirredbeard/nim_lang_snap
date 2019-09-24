@@ -20,10 +20,11 @@ jobs:
       run: |
         cd lts-1
         snapcraft
+        mv nim-lang-lts-*_amd64.snap nim-lang-lts-amd64.snap
 #    - uses: actions/upload-artifact@master
 #      with:
 #        name: snap
-#        path: *.snap
+#        path: nim-lang-lts-amd64.snap
 #
 #  push:
 #    runs-on: ubuntu-latest
