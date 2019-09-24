@@ -3,7 +3,7 @@ summary: Nim programming language, compiler, and other tools.
 description: |
   Nim is a compiled, garbage-collected systems programming language with 
   a design that focuses on efficiency, expressiveness, and elegance.
-version: ${VERSION}
+version: VERSION
 base: core18
 grade: stable
 confinement: strict
@@ -31,7 +31,7 @@ apps:
 parts:
   nim-build:
     plugin: dump
-    source: $(RELEASEURL)
+    source: RELEASEURL
     override-build: |
       sh build.sh
       bin/nim c koch
