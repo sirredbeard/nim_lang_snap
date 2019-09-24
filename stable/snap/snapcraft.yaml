@@ -30,7 +30,6 @@ apps:
 
 parts:
   nim-build:
-    plugin: dump
     source: RELEASEURL
     override-build: |
       sh build.sh
