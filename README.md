@@ -3,14 +3,27 @@
 
 This repository is a set of GitHub Actions and Snapcraft snap templates that automates deployment of stable, LTS, and nightly builds of the [Nim programming language](https://nim-lang.org/) and [bundled tools](https://nim-lang.org/docs/tools.html).
 
+Nim is a compiled, garbage-collected systems programming language with a design that focuses on efficiency, expressiveness, and elegance.
+
 * [Learn Nim](https://nim-lang.org/learn.html)
-* Snapcraft: [Stable](https://snapcraft.io/nim-lang), [LTS 1](https://snapcraft.io/nim-lang-lts-1), [Nightly](https://snapcraft.io/nim-lang-nightly)
 
 # Status
 
+* [Stable](https://snapcraft.io/nim-lang)
+
+`$ snap install nim-lang`
+
 ![stable status](https://github.com/sirredbeard/nim_lang_snap/workflows/stable/badge.svg)
 
+* [LTS 1](https://snapcraft.io/nim-lang-lts-1)
+
+`$ snap install nim-lang-lts-1`
+
 ![lts status](https://github.com/sirredbeard/nim_lang_snap/workflows/lts-1/badge.svg)
+
+* [Nightly](https://snapcraft.io/nim-lang-nightly)
+
+`$ snap install nim-lang-nightly`
 
 ![nightly status](https://github.com/sirredbeard/nim_lang_snap/workflows/edge/badge.svg)
 
@@ -26,7 +39,7 @@ This repository is a set of GitHub Actions and Snapcraft snap templates that aut
 
 * snapcraft.yml - nim lts 1 branch snap file (updated by data from GitHub API in lts-1.yml)
 
-/edge/snap/
+/nightly/snap/
 
 * snapcraft.yml - nim nightly snap file
 
