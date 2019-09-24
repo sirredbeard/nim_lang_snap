@@ -38,3 +38,8 @@ parts:
     build-packages:
       - gcc
       - git
+    filesets:
+      bin:
+      - bin/*
+    stage: [$bin]
+    prime: [$bin]
