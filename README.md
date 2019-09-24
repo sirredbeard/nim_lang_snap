@@ -7,29 +7,41 @@ Nim is a compiled, garbage-collected systems programming language with a design 
 
 * [Learn Nim](https://nim-lang.org/learn.html)
 
-# Status
+## Branches
 
-* [Stable](https://snapcraft.io/nim-lang)
+### Stable
+
+Recommended for most users
 
 `$ snap install nim-lang`
 
+[Snapcraft Store](https://snapcraft.io/nim-lang)
+
 ![stable status](https://github.com/sirredbeard/nim_lang_snap/workflows/stable/badge.svg)
 
-* [LTS 1](https://snapcraft.io/nim-lang-lts-1)
+### LTS 1.0.x Branch
+
+Recommended for Nim applications targeted to the LTS 1.0.x LTS branch
 
 `$ snap install nim-lang-lts-1`
 
+[Snapcraft Store](https://snapcraft.io/nim-lang-lts-1)
+
 ![lts status](https://github.com/sirredbeard/nim_lang_snap/workflows/lts-1/badge.svg)
 
-* [Nightly](https://snapcraft.io/nim-lang-nightly)
+### Nightly 
+
+Recommended for testing nightly builds of Nim. Likely contains bugs
 
 `$ snap install nim-lang-nightly`
 
+[Snapcraft Store](https://snapcraft.io/nim-lang-nightly)
+
 ![nightly status](https://github.com/sirredbeard/nim_lang_snap/workflows/edge/badge.svg)
 
-# Files
+## Files
 
-## Snap Templates
+### Snap Templates
 
 /stable/snap/
 
@@ -43,7 +55,7 @@ Nim is a compiled, garbage-collected systems programming language with a design 
 
 * snapcraft.yml - nim nightly snap file
 
-## GitHub Actions
+### GitHub Actions
 
 /github/workflows
 
