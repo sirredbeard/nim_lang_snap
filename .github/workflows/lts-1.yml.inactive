@@ -1,0 +1,23 @@
+name: lts-1
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: snapcore/snapcraft
+    steps:
+    - uses: actions/checkout@v1
+    - name: Configure
+      run: |
+        #apt-get install python3-pip python3-setuptools python3-wheel -y
+        #useradd -m temp
+        #chown -R temp /home/temp
+        #su temp -c "pip3 install lastversion"
+        VERSION=$()
+        RELEASEURL=$()
+        sed -i "s/VERSION/$VERSION/g" "stable/snap/snapcraft.yaml"
+        sed -i "s*RELEASEURL*$RELEASEURL*g" "stable/snap/snapcraft.yaml"
+    - name: Build
+      run: |
+        cd stable
+        snapcraft
