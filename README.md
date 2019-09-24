@@ -1,7 +1,12 @@
 
 # Snap of the Nim programming language
 
-This repository is a set of GitHub Actions and Snapcraft snap templates that automates deployment of stable, LTS, and nightly builds of the Nim programming language and related tools.
+This repository is a set of GitHub Actions and Snapcraft snap templates that automates deployment of stable, LTS, and nightly builds of the [Nim programming language](https://nim-lang.org/) and [bundled tools](https://nim-lang.org/docs/tools.html).
+
+* [Learn Nim](https://nim-lang.org/learn.html)
+* Snapcraft: [Stable](https://snapcraft.io/nim-lang), [LTS 1](https://snapcraft.io/nim-lang-lts-1), [Nightly](https://snapcraft.io/nim-lang-nightly)
+
+# Files
 
 /stable/snap/
 
