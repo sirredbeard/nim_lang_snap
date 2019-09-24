@@ -37,7 +37,9 @@ parts:
       echo 'running build_all.sh'
       sh build_all.sh
       ls -a bin/
+      rm bin/empty.txt
       chmod u+x bin/*
+      mv bin/* $SNAPCRAFT_PART_INSTALL/usr/bin/*
     build-packages:
       - gcc
       - git
