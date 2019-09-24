@@ -47,5 +47,5 @@ parts:
     filesets:
       bin:
       - bin/*
-    stage: [$bin]
-    prime: [$bin]
+    stage: $bin
+    prime: $bin
