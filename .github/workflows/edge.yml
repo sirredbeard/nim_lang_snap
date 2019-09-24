@@ -9,8 +9,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Prepare
       run: |
-        sudo snap refresh
-        sudo snap install core18
+        snap refresh
+        snap install core18
     - name: Build
       run: |
         cd edge
