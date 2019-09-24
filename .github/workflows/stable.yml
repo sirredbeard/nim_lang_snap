@@ -11,6 +11,7 @@ jobs:
       run: |
         apt-get install python3-pip python3-setuptools python3-wheel -y
         useradd temp
+        chown -R temp /home/temp
         su temp -c "pip3 install lastversion"
         VERSION=$(su temp -c "~/.local/bin/lastversion nim-lang/Nim")
         RELEASEURL=$(su temp -c "~/.local/bin/lastversion --assets nim-lang/Nim")
