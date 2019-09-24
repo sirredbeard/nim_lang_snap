@@ -28,12 +28,12 @@ jobs:
         snapcraft
         pwd
         ls -a
-        mv nim-lang_*_amd64.snap /nim-lang_amd64.snap
+        mv nim-lang_*_amd64.snap nim-lang_amd64.snap
         ls -a
     - uses: actions/upload-artifact@master
       with:
         name: snap
-        path: /nim-lang_amd64.snap
+        path: /__w/nim_lang_snap/nim_lang_snap/stable/nim-lang_amd64.snap
 
   push:
     runs-on: ubuntu-latest
