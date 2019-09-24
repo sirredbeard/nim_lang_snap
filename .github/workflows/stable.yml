@@ -32,7 +32,7 @@ jobs:
         ls -a
     - uses: actions/upload-artifact@master
       with:
-        name: snap
+        name: stable-snap
         path: /__w/nim_lang_snap/nim_lang_snap/stable/nim-lang_amd64.snap
 
   push:
@@ -43,7 +43,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@master
         with:
-          name: snap
+          name: stable-snap
       - name: Push snap
         env:
           SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
