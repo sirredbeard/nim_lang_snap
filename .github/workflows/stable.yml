@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: snapcore/snapcraft
+    env:
+      SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
     steps:
     - uses: actions/checkout@v1
     - name: Configure template
@@ -26,29 +28,9 @@ jobs:
       run: |
         cd stable
         snapcraft
-        pwd
-        ls -a
-        mv nim-lang_*_amd64.snap nim-lang_amd64.snap
-        ls -a
-    - uses: actions/upload-artifact@master
-      with:
-        name: stable-snap
-        path: /__w/nim_lang_snap/nim_lang_snap/stable/nim-lang_amd64.snap
+    - name: Push snap
+      run: |
+        mkdir .snapcraft
+        echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
+        snapcraft push --release=stable *.snap
 
-  push:
-    runs-on: ubuntu-latest
-    needs: build
-    container:
-      image: snapcore/snapcraft
-    steps:
-      - uses: actions/download-artifact@master
-        with:
-          name: stable-snap
-      - name: Push snap
-        env:
-          SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
-        run: |
-         ls -a
-         mkdir .snapcraft
-         echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
-         snapcraft push --release=stable nim-lang_amd64.snap
