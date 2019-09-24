@@ -1,5 +1,10 @@
 name: stable
-on: [push]
+on:
+  push:
+    branches:
+    - master
+  schedule:
+   - cron: 0 22 * * *
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,7 +26,9 @@ jobs:
       run: |
         cd stable
         snapcraft
+        ls -a
         mv nim-lang_*_amd64.snap nim-lang_amd64.snap
+        ls -a
     - uses: actions/upload-artifact@master
       with:
         name: snap
