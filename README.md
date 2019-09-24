@@ -40,8 +40,8 @@ This repository is a set of GitHub Actions and Snapcraft snap templates that aut
 
 * lts-1.yml - pushes nim lts 1 branch snap to snap store
 
-  * gets latest 1.0.x using curl, jq, and awk
+  * gets latest 1.0.x using curl, jq, and awk directly from the GitHub API
 
 * edge.yml - pushes nim nightly snap to snap store
 
-  * gets latest code directly from the development branch of the nim GitHub repository
+  * gets latest Nim code directly from the development branch of the nim GitHub repository
