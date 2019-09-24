@@ -15,8 +15,8 @@ jobs:
         VERSION=$(su temp -c "~/.local/bin/lastversion nim-lang/Nim")
         RELEASEURL=$(su temp -c "~/.local/bin/lastversion --assets nim-lang/Nim")
         sed -i "s/VERSION/$VERSION/g" "stable/snap/snapcraft.yaml"
-        sed -i "s/RELEASEURL/$RELEASEURL/g" "stable/snap/snapcraft.yaml"
+        sed -i "s*RELEASEURL*$RELEASEURL*g" "stable/snap/snapcraft.yaml"
     - name: Build
       run: |
         cd stable
-        #snapcraft
+        snapcraft
