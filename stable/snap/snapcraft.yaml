@@ -38,6 +38,12 @@ parts:
       sh build_all.sh
       bin/nim c koch
       ./koch tools
+      ls -a bin/
     build-packages:
       - gcc
       - git
+    filesets:
+      bin:
+      - bin/*
+    stage: [$bin]
+    prime: [$bin]
