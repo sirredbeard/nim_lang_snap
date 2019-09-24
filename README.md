@@ -37,7 +37,7 @@ Recommended for testing nightly builds of Nim. Likely contains bugs
 
 [Snapcraft Store](https://snapcraft.io/nim-lang-nightly)
 
-![nightly status](https://github.com/sirredbeard/nim_lang_snap/workflows/edge/badge.svg)
+![nightly status](https://github.com/sirredbeard/nim_lang_snap/workflows/nightly/badge.svg)
 
 ## Files
 
@@ -67,6 +67,6 @@ Recommended for testing nightly builds of Nim. Likely contains bugs
 
   * gets latest 1.0.x using curl, jq, and awk directly from the GitHub API
 
-* edge.yml - pushes nim nightly snap to snap store
+* nightly.yml - pushes nim nightly snap to snap store
 
   * gets latest Nim code directly from the development branch of the nim GitHub repository
