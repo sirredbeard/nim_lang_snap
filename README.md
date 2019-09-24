@@ -8,11 +8,11 @@ This repository is a set of GitHub Actions and Snapcraft snap templates that aut
 
 # Status
 
-![](https://github.com/sirredbeard/nim_lang_snap/workflows/stable/badge.svg)
+![stable status](https://github.com/sirredbeard/nim_lang_snap/workflows/stable/badge.svg)
 
-![](https://github.com/sirredbeard/nim_lang_snap/workflows/lts-1/badge.svg)
+![lts status](https://github.com/sirredbeard/nim_lang_snap/workflows/lts-1/badge.svg)
 
-![](https://github.com/sirredbeard/nim_lang_snap/workflows/edge/badge.svg)
+![nightly status](https://github.com/sirredbeard/nim_lang_snap/workflows/edge/badge.svg)
 
 # Files
 
