@@ -1,0 +1,40 @@
+name: nim-lang
+summary: Nim programming language, compiler, and other tools.
+description: |
+  Nim is a compiled, garbage-collected systems programming language with 
+  a design that focuses on efficiency, expressiveness, and elegance.
+version: 'nightly'
+base: core18
+grade: devel
+confinement: strict
+
+apps:
+  nim:
+    command: nim
+  nimble:
+    command: nimble
+  nimcsources:
+    command: nim_csources
+  nimfind:
+    command: nimfind
+  nimgdb:
+    command: nim-gdb
+  nimgrep:
+    command: nimgrep
+  nimpretty:
+    command: nimpretty
+  nimsuggest:
+    command: nimsuggest
+  testament:
+    command: testament
+
+parts:
+  nim-build:
+    plugin: dump
+    source: https://github.com/nim-lang/Nim.git
+    override-build: |
+      echo 'running build_all.sh'
+      sh build_all.sh
+    build-packages:
+      - gcc
+      - git
