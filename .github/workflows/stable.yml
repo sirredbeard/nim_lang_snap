@@ -27,12 +27,12 @@ jobs:
         cd stable
         snapcraft
         ls -a
-        mv nim-lang_*_amd64.snap nim-lang_amd64.snap
+        mv nim-lang_*_amd64.snap /${GITHUB_WORKSPACE}/nim-lang_amd64.snap
         ls -a
     - uses: actions/upload-artifact@master
       with:
         name: snap
-        path: nim-lang_amd64.snap
+        path: /${GITHUB_WORKSPACE}/nim-lang_amd64.snap
 
   push:
     runs-on: ubuntu-latest
@@ -49,5 +49,5 @@ jobs:
         run: |
          ls -a
          mkdir .snapcraft
-         echo $SNAPCRAFT_LOGIN_FILE | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
+         echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
          snapcraft push --release=stable *.snap
