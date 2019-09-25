@@ -64,29 +64,29 @@ Recommended for testing nightly builds of Nim. Likely contains bugs.
 
 /github/workflows
 
-* [stable.yml](https://github.com/sirredbeard/nim_lang_snap/tree/master/.github/workflows) - pushes nim stable release snap to snap store
+* [stable.yml](https://github.com/sirredbeard/nim_lang_snap/tree/master/.github/workflows) - Pushes Nim stable  snap to snap store.
 
-  * gets latest release using [lastversion](https://github.com/dvershinin/lastversion)
+  * Gets latest release using [lastversion](https://github.com/dvershinin/lastversion).
 
-* [lts-1.yml](https://github.com/sirredbeard/nim_lang_snap/tree/master/.github/workflows) - pushes nim lts 1 branch snap to snap store
+* [lts-1.yml](https://github.com/sirredbeard/nim_lang_snap/tree/master/.github/workflows) - Pushes Nim LTS 1 snap to snap store.
 
-  * gets latest 1.0.x using curl, jq, and awk directly from the GitHub API
+  * Gets latest 1.0.x build using curl, jq, grep, awk, and tr directly from the GitHub API.
 
-* [nightly.yml](https://github.com/sirredbeard/nim_lang_snap/blob/master/.github/workflows/nightly.yml) - pushes nim nightly snap to snap store
+* [nightly.yml](https://github.com/sirredbeard/nim_lang_snap/blob/master/.github/workflows/nightly.yml) - Pushes Nim nightly snap to snap store.
 
 ### Snap Templates
 
 /stable/snap/
 
-* [snapcraft.yml](https://github.com/sirredbeard/nim_lang_snap/blob/master/stable/snap/snapcraft.yaml) - nim stable snap file template (updated by data from lastversion in stable.yml)
+* [snapcraft.yaml](https://github.com/sirredbeard/nim_lang_snap/blob/master/stable/snap/snapcraft.yaml) - Nim stable snap file template (updated by data from lastversion in stable.yml).
 
 /lts-1/snap/
 
-* [snapcraft.yml](https://github.com/sirredbeard/nim_lang_snap/blob/master/lts-1/snap/snapcraft.yaml) - nim lts 1 branch snap file (updated by data from GitHub API in lts-1.yml)
+* [snapcraft.yaml](https://github.com/sirredbeard/nim_lang_snap/blob/master/lts-1/snap/snapcraft.yaml) - Nim lts 1 branch snap file (updated by data from GitHub API in lts-1.yml).
 
 /nightly/snap/
 
-* [snapcraft.yml](https://github.com/sirredbeard/nim_lang_snap/blob/master/nightly/snap/snapcraft.yaml) - nim nightly snap file
+* [snapcraft.yaml](https://github.com/sirredbeard/nim_lang_snap/blob/master/nightly/snap/snapcraft.yaml) - Nim nightly snap file,
 
 For more information, see [my blog post](boxofcables.dev/snaps-for-nim/) on this project.
 
