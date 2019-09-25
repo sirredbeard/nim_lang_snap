@@ -60,9 +60,9 @@ Recommended for testing nightly builds of Nim. Likely contains bugs.
 
 [![nim-lang-nightly](https://snapcraft.io/nim-lang-nightly/badge.svg)](https://snapcraft.io/nim-lang-nightly)
 
-## Files
+## Repository Files
 
-### GitHub Actions
+### GitHub Actions workflows
 
 /github/workflows
 
@@ -76,7 +76,7 @@ Recommended for testing nightly builds of Nim. Likely contains bugs.
 
 * [nightly.yml](https://github.com/sirredbeard/nim_lang_snap/blob/master/.github/workflows/nightly.yml) - Pushes Nim nightly snap to snap store.
 
-### Snap Templates
+### Snap template files
 
 /stable/snap/
 
