@@ -90,7 +90,7 @@ Recommended for testing nightly builds of Nim. Likely contains bugs.
 
 For more information, see [my blog post](boxofcables.dev/snaps-for-nim/) on this project.
 
-## Usage
+## Advanced Usage
 
 ### Installation
 
