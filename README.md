@@ -16,6 +16,8 @@ A snap is a bundle of an app and its dependencies that works without modificatio
 * [Documentation](https://snapcraft.io/docs) - Documentation
 * [Snapcraft Store](https://snapcraft.io/store) - Snap app store
 
+For a technical walkthrough of how this repository works, see [my blog post](boxofcables.dev/snaps-for-nim/).
+
 ## Branches
 
 ### Stable
@@ -87,8 +89,6 @@ Recommended for testing nightly builds of Nim. Likely contains bugs.
 /nightly/snap/
 
 * [snapcraft.yaml](https://github.com/sirredbeard/nim_lang_snap/blob/master/nightly/snap/snapcraft.yaml) - Nim nightly snap file,
-
-For more information, see [my blog post](boxofcables.dev/snaps-for-nim/) on this project.
 
 ## Advanced Usage
 
