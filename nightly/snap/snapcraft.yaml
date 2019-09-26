@@ -54,6 +54,7 @@ parts:
     source: https://github.com/nim-lang/Nim.git
     override-build: |
       sh build_all.sh --os linux --cpu amd64
+      ./koch docs
       rm bin/empty.txt
       chmod u+x bin/*
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin
@@ -62,15 +63,15 @@ parts:
       mkdir "$SNAPCRAFT_PART_INSTALL"/doc
       mkdir -p "$SNAPCRAFT_PART_INSTALL"/usr/bin
       mkdir "$SNAPCRAFT_PART_INSTALL"/usr/lib
-      mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin/
-      mv config/* "$SNAPCRAFT_PART_INSTALL"/
-      mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib/
-      mv doc/* "$SNAPCRAFT_PART_INSTALL"/doc/
-      mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/
-      mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/
-      cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin/
-      cp /usr/bin/clang "$SNAPCRAFT_PART_INSTALL"/usr/bin/
-      cp -a /usr/lib/clang "$SNAPCRAFT_PART_INSTALL"/usr/lib
+      mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin
+      mv config/* "$SNAPCRAFT_PART_INSTALL"
+      mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib
+      mv doc/* "$SNAPCRAFT_PART_INSTALL"/doc
+      mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"
+      mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"
+      cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin
+      cp /usr/bin/clang "$SNAPCRAFT_PART_INSTALL"/usr/bin
+      cp -a /usr/lib/clang "$SNAPCRAFT_PART_INSTALL"/usr/li
       cp -a /usr/lib/llvm-6.0 "$SNAPCRAFT_PART_INSTALL"/usr/lib
       cp -a /usr/lib/gcc "$SNAPCRAFT_PART_INSTALL"/usr/lib
     build-packages:
