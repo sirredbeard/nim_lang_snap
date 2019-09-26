@@ -7,26 +7,47 @@ version: 'nightly'
 base: core18
 grade: devel
 confinement: strict
+plugs:
+  - 
 
 apps:
   nim:
     command: bin/nim
+    plugs:
+      - home
   nimble:
     command: bin/nimble
+    plugs:
+      - home
+      - network
   nimcsources:
     command: bin/nim_csources
+    plugs:
+      - home
   nimfind:
     command: bin/nimfind
+    plugs:
+      - home
   nimgdb:
     command: bin/nim-gdb
+    plugs:
+      - home
   nimgrep:
     command: bin/nimgrep
+    plugs:
+      - home
   nimpretty:
     command: bin/nimpretty
+    plugs:
+      - home
   nimsuggest:
     command: bin/nimsuggest
+    plugs:
+      - home
   testament:
     command: bin/testament
+    plugs:
+      - home
 
 parts:
   nim-build:
