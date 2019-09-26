@@ -7,6 +7,9 @@ version: VERSION
 base: core18
 grade: stable
 confinement: strict
+architectures:
+  - build-on: amd64
+    run-on: amd64
 
 apps:
   nim:
@@ -49,7 +52,7 @@ parts:
     source-type: tar
     plugin: autotools
     override-build: |
-      sh build_all.sh
+      sh build_all.sh --os linux --cpu amd64
       bin/nim c koch
       ./koch tools
       rm bin/empty.txt
@@ -70,3 +73,4 @@ parts:
     build-packages:
       - gcc
       - git
+      - clang

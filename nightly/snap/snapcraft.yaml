@@ -7,6 +7,9 @@ version: 'nightly'
 base: core18
 grade: devel
 confinement: strict
+architectures:
+  - build-on: amd64
+    run-on: amd64
 
 apps:
   nim:
