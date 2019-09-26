@@ -72,3 +72,5 @@ parts:
       - -usr/share/lintian
       - -usr/share/man
       - -usr/share/bug
+      - usr/lib/$SNAPCRAFT_ARCH_TRIPLET
+      - usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET
