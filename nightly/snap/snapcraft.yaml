@@ -67,4 +67,4 @@ parts:
     build-packages:
       - gcc
       - git
-      = clang
+      - clang
