@@ -38,6 +38,9 @@ apps:
   testament:
     command: bin/testament
     plugs: [home]
+  gcc:
+    command: usr/bin/gcc
+    plugs: [home]
 
 layout:
   /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
@@ -84,8 +87,9 @@ parts:
       mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nimble
     stage-packages:
       - gcc
-      - libgcc1
       - libgcc-5-dev
+      - libgcc1
+      - libc6-dev
     build-packages:
       - gcc
       - git

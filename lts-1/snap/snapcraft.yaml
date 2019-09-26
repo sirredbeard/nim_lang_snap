@@ -59,8 +59,16 @@ parts:
       mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nimble
     stage-packages:
       - gcc
-      - libgcc1
       - libgcc-5-dev
+      - libgcc1
+      - libc6-dev
     build-packages:
       - gcc
       - git
+    prime:
+      - -share/man
+      - -share/doc
+      - -usr/share/doc
+      - -usr/share/lintian
+      - -usr/share/man
+      - -usr/share/bug

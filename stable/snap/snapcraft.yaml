@@ -38,6 +38,9 @@ apps:
   testament:
     command: bin/testament
     plugs: [home]
+  gcc:
+    command: usr/bin/gcc
+    plugs: [home]
 
 parts:
   nim-build:
@@ -58,11 +61,17 @@ parts:
       mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nim
       mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nimble
     stage-packages:
-      - gcc-6
-      - gcc-6-base
-      - libgcc-6-dev
+      - gcc
+      - libgcc-5-dev
       - libgcc1
       - libc6-dev
     build-packages:
       - gcc
       - git
+    prime:
+      - -share/man
+      - -share/doc
+      - -usr/share/doc
+      - -usr/share/lintian
+      - -usr/share/man
+      - -usr/share/bug
