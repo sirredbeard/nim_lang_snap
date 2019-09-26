@@ -36,6 +36,12 @@ apps:
   testament:
     command: bin/testament
     plugs: [home]
+  gcc:
+    command: usr/bin/gcc
+    plugs: [home]
+  clang:
+    command: usr/bin/clang
+    plugs: [home]
 
 parts:
   nim-build:
@@ -55,6 +61,10 @@ parts:
       mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib/
       mkdir "$SNAPCRAFT_PART_INSTALL"/doc/
       mv doc/* "$SNAPCRAFT_PART_INSTALL"/doc/
+      mkdir "$SNAPCRAFT_PART_INSTALL"/usr/bin/
+      cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin/
+      cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin/
     build-packages:
       - gcc
       - git
+      = clang

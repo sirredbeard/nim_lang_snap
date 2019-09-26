@@ -114,6 +114,10 @@ nim-lang.nimsuggest
 
 Nightly will be nim-lang-night.* and LTS will be nim-lang-lts-1.*.
 
+### Compilers
+
+Snaps include the latest gcc and clang from the Core18 distribution.
+
 ### Aliases
 
 You can use snap to create aliases for more common names:
