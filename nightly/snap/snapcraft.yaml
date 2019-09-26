@@ -88,9 +88,4 @@ parts:
       cp -a /usr/lib/clang "$SNAPCRAFT_PART_INSTALL"/usr/lib
       cp -a /usr/lib/llvm-6.0 "$SNAPCRAFT_PART_INSTALL"/usr/lib
       cp -a /usr/lib/gcc "$SNAPCRAFT_PART_INSTALL"/usr/lib
-    build-packages:
-      - gcc
-      - git
-      - clang
-      - llvm-6.0-dev
-      - libc6-dev
+    build-packages: [gcc:target, git:native, clang:target, llvm-6.0-dev:target, libc6-dev:target]
