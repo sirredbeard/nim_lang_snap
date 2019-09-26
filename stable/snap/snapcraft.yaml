@@ -39,9 +39,6 @@ apps:
   gcc:
     command: usr/bin/gcc
     plugs: [home]
-  clang:
-    command: usr/bin/clang
-    plugs: [home]
 
 parts:
   nim-build:
@@ -65,13 +62,7 @@ parts:
       mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"
       mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"
       cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin
-      cp /usr/bin/clang "$SNAPCRAFT_PART_INSTALL"/usr/bin
-      cp -rLf /usr/lib/clang "$SNAPCRAFT_PART_INSTALL"/usr/lib
-      cp -rLf /usr/lib/llvm-6.0 "$SNAPCRAFT_PART_INSTALL"/usr/lib
       cp -rLf /usr/lib/gcc "$SNAPCRAFT_PART_INSTALL"/usr/lib
     build-packages:
       - gcc
       - git
-      - clang
-      - llvm-6.0-dev
-      - libc6-dev
