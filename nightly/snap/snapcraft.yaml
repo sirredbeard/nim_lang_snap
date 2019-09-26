@@ -46,6 +46,10 @@ apps:
     command: usr/bin/gcc
     plugs: [home]
 
+layout:
+  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
+    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
+
 parts:
   nim-build:
     plugin: dump
@@ -84,8 +88,6 @@ parts:
       mv doc/* "$SNAPCRAFT_PART_INSTALL"/doc
       mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"
       mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"
-      cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin
-      cp -rLf /usr/lib/gcc "$SNAPCRAFT_PART_INSTALL"/usr/lib
     build-packages: 
       - gcc
       - git
