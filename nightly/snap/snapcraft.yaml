@@ -87,13 +87,14 @@ parts:
       #mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nim
       #mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nimble
     stage-packages:
-      - gcc-7
+      - gcc
       - libgcc-7-dev
       - libgcc1
       - libc6-dev
       - linux-libc-dev
+      - build-essential
     build-packages:
-      - gcc-7
+      - gcc
       - git
     #prime:
       #- -share/man
