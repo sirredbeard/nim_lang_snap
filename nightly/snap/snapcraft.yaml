@@ -39,6 +39,10 @@ apps:
     command: bin/testament
     plugs: [home]
 
+layout:
+  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
+    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
+
 parts:
   nim-build:
     plugin: dump
@@ -74,9 +78,7 @@ parts:
       mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nimble
     stage-packages:
       - gcc
-      - libgcc1
-      - libc6-dev
-      - build-essential
+      - libgcc-5-dev
     build-packages:
       - gcc
       - git
