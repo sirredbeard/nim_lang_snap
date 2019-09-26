@@ -86,6 +86,10 @@ parts:
       mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/bin
       mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/bin
       cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin
+    stage-packages:
+      - gcc
+      - libgcc1
+      - libc6-dev
     build-packages: 
       - gcc
       - git
