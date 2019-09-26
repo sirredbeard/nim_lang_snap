@@ -11,9 +11,11 @@ confinement: strict
 apps:
   nim:
     command: bin/nim
+    completer: bin/nim.bash-completion
     plugs: [home]
   nimble:
     command: bin/nimble
+    completer: bin/nimble.bash-completion
     plugs: [home, network]
   nimcsources:
     command: bin/nim_csources
@@ -55,14 +57,16 @@ parts:
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin
       mkdir "$SNAPCRAFT_PART_INSTALL"/lib
       mkdir "$SNAPCRAFT_PART_INSTALL"/doc
-      mkdir -p "$SNAPCRAFT_PART_INSTALL"/usr/bin
-      mkdir "$SNAPCRAFT_PART_INSTALL"/usr/lib
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin
       mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib
       mv doc/* "$SNAPCRAFT_PART_INSTALL"/doc
       mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"
       mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"
-      cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin
+    stage-packages:
+      - gcc
+      - libgcc1
+      - libc6-dev
+      - build-essential
     build-packages:
       - gcc
       - git

@@ -43,10 +43,6 @@ apps:
     command: bin/testament
     plugs: [home]
 
-layout:
-  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
-    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
-
 parts:
   nim-build:
     plugin: dump
@@ -78,18 +74,16 @@ parts:
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin
       mkdir "$SNAPCRAFT_PART_INSTALL"/lib
       mkdir "$SNAPCRAFT_PART_INSTALL"/doc
-      mkdir -p "$SNAPCRAFT_PART_INSTALL"/usr/bin
-      mkdir "$SNAPCRAFT_PART_INSTALL"/usr/lib
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin
       mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib
       mv doc/* "$SNAPCRAFT_PART_INSTALL"/doc
-      mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/bin
-      mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/bin
-      cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin
+      mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"
+      mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"
     stage-packages:
       - gcc
       - libgcc1
       - libc6-dev
-    build-packages: 
+      - build-essential
+    build-packages:
       - gcc
       - git
