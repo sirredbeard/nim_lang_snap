@@ -53,15 +53,19 @@ parts:
       sh build_all.sh
       rm bin/empty.txt
       chmod u+x bin/*
-      mkdir -p "$SNAPCRAFT_PART_INSTALL"/{bin,config,lib,doc,usr/bin}
+      mkdir "$SNAPCRAFT_PART_INSTALL"/bin
+      mkdir "$SNAPCRAFT_PART_INSTALL"/config
+      mkdir "$SNAPCRAFT_PART_INSTALL"/lib
+      mkdir "$SNAPCRAFT_PART_INSTALL"/doc
+      mkdir -p "$SNAPCRAFT_PART_INSTALL"/usr/bin
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin/
       mv config/* "$SNAPCRAFT_PART_INSTALL"/
       mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib/
       mv doc/* "$SNAPCRAFT_PART_INSTALL"/doc/
-      cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin/
-      cp /usr/bin/clang "$SNAPCRAFT_PART_INSTALL"/usr/bin/
       mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/
       mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/
+      cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin/
+      cp /usr/bin/clang "$SNAPCRAFT_PART_INSTALL"/usr/bin/
     build-packages:
       - gcc
       - git
