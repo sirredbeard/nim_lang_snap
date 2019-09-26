@@ -52,13 +52,19 @@ parts:
       chmod u+x bin/*
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin
       mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib
-      mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"
-      mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"
+      mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/bin
+      mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/bin
     stage-packages:
       - gcc
       - libgcc1
       - libc6-dev
       - build-essential
+      - libbz2-1.0
+      - libc6
+      - libdb5.3
+      - liblzma5
+      - libstdc++6
+      - zlib1g
     build-packages:
       - gcc
       - git
