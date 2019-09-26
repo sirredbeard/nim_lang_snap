@@ -36,9 +36,6 @@ apps:
   testament:
     command: bin/testament
     plugs: [home]
-  gcc:
-    command: usr/bin/gcc
-    plugs: [home]
 
 layout:
   /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
@@ -65,6 +62,7 @@ parts:
       mv doc/* "$SNAPCRAFT_PART_INSTALL"/doc
       mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"
       mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"
+      cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin
     build-packages:
       - gcc
       - git

@@ -15,11 +15,11 @@ architectures:
 apps:
   nim:
     command: bin/nim
-    completer: nim.bash-completion
+    completer: bin/nim.bash-completion
     plugs: [home]
   nimble:
     command: bin/nimble
-    completer: nimble.bash-completion
+    completer: bin/nimble.bash-completion
     plugs: [home, network]
   nimcsources:
     command: bin/nim_csources
@@ -41,9 +41,6 @@ apps:
     plugs: [home]
   testament:
     command: bin/testament
-    plugs: [home]
-  gcc:
-    command: usr/bin/gcc
     plugs: [home]
 
 layout:
@@ -86,8 +83,9 @@ parts:
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin
       mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib
       mv doc/* "$SNAPCRAFT_PART_INSTALL"/doc
-      mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"
-      mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"
+      mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/bin
+      mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/bin
+      cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin
     build-packages: 
       - gcc
       - git
