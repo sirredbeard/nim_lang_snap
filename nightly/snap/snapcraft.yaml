@@ -46,13 +46,13 @@ apps:
     command: usr/bin/gcc
     plugs: [home]
 
-layout:
-  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
-    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
+#layout:
+#  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
+#    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
 
-layout:
-  /usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET:
-    bind: $SNAP/usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET
+#layout:
+#  /usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET:
+#    bind: $SNAP/usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET
 
 parts:
   nim-build:
