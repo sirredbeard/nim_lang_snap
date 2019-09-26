@@ -53,17 +53,11 @@ parts:
       sh build_all.sh
       rm bin/empty.txt
       chmod u+x bin/*
-      mkdir "$SNAPCRAFT_PART_INSTALL"/bin/
-      ls -a bin/*
+      mkdir -p "$SNAPCRAFT_PART_INSTALL"/{bin,config,lib,doc,usr/bin}
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin/
-      ls -a "$SNAPCRAFT_PART_INSTALL"/bin/*
-      mkdir "$SNAPCRAFT_PART_INSTALL"/config/
       mv config/* "$SNAPCRAFT_PART_INSTALL"/
-      mkdir "$SNAPCRAFT_PART_INSTALL"/lib/
       mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib/
-      mkdir "$SNAPCRAFT_PART_INSTALL"/doc/
       mv doc/* "$SNAPCRAFT_PART_INSTALL"/doc/
-      mkdir "$SNAPCRAFT_PART_INSTALL"/usr/bin/
       cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin/
       cp /usr/bin/clang "$SNAPCRAFT_PART_INSTALL"/usr/bin/
       mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/
