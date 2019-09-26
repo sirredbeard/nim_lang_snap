@@ -85,7 +85,12 @@ parts:
       mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"
       cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin
       cp /usr/bin/clang "$SNAPCRAFT_PART_INSTALL"/usr/bin
-      cp -aL /usr/lib/clang "$SNAPCRAFT_PART_INSTALL"/usr/lib
-      cp -aL /usr/lib/llvm-6.0 "$SNAPCRAFT_PART_INSTALL"/usr/lib
-      cp -aL /usr/lib/gcc "$SNAPCRAFT_PART_INSTALL"/usr/lib
-    build-packages: [gcc:target, git:native, clang:target, llvm-6.0-dev:target, libc6-dev:target]
+      cp -rLf /usr/lib/clang "$SNAPCRAFT_PART_INSTALL"/usr/lib
+      cp -rLf /usr/lib/llvm-6.0 "$SNAPCRAFT_PART_INSTALL"/usr/lib
+      cp -rLf /usr/lib/gcc "$SNAPCRAFT_PART_INSTALL"/usr/lib
+    build-packages: 
+      - gcc
+      - git
+      - clang
+      - llvm-6.0-dev
+      - libc6-dev

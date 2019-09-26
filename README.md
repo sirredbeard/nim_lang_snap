@@ -60,6 +60,18 @@ Recommended for testing nightly builds of Nim. Likely contains bugs.
 
 [![nim-lang-nightly](https://snapcraft.io/nim-lang-nightly/badge.svg)](https://snapcraft.io/nim-lang-nightly)
 
+### Documentation
+
+HTML documentation and examples.
+
+`$ snap install nim-lang-docs`
+
+[Snapcraft Store](https://snapcraft.io/nim-lang-docs)
+
+![nightly status](https://github.com/sirredbeard/nim_lang_snap/workflows/docs/badge.svg)
+
+[![nim-lang-nightly](https://snapcraft.io/nim-lang-docs/badge.svg)](https://snapcraft.io/nim-lang-docs)
+
 ## Repository Files
 
 ### GitHub Actions workflows
