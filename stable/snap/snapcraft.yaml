@@ -39,17 +39,13 @@ apps:
     command: bin/testament
     plugs: [home]
 
-layout:
-  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
-    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
-
 parts:
   nim-build:
     source: RELEASEURL
     source-type: tar
     plugin: autotools
     override-build: |
-      sh build_all.sh  --os linux --cpu amd64
+      sh build_all.sh --os linux --cpu amd64
       bin/nim c koch
       ./koch tools
       rm bin/empty.txt

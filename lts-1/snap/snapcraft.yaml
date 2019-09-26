@@ -39,10 +39,6 @@ apps:
     command: bin/testament
     plugs: [home]
 
-layout:
-  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
-    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
-
 parts:
   nim-build:
     source: RELEASEURL
