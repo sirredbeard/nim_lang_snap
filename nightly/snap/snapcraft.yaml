@@ -13,41 +13,31 @@ plugs:
 apps:
   nim:
     command: bin/nim
-    plugs:
-      - home
+    plugs: [home]
   nimble:
     command: bin/nimble
-    plugs:
-      - home
-      - network
+    plugs: [home, network]
   nimcsources:
     command: bin/nim_csources
-    plugs:
-      - home
+    plugs: [home]
   nimfind:
     command: bin/nimfind
-    plugs:
-      - home
+    plugs: [home]
   nimgdb:
     command: bin/nim-gdb
-    plugs:
-      - home
+    plugs: [home]
   nimgrep:
     command: bin/nimgrep
-    plugs:
-      - home
+    plugs: [home]
   nimpretty:
     command: bin/nimpretty
-    plugs:
-      - home
+    plugs: [home]
   nimsuggest:
     command: bin/nimsuggest
-    plugs:
-      - home
+    plugs: [home]
   testament:
     command: bin/testament
-    plugs:
-      - home
+    plugs: [home]
 
 parts:
   nim-build:
