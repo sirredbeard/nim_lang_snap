@@ -42,9 +42,6 @@ apps:
   testament:
     command: bin/testament
     plugs: [home]
-  gcc:
-    command: usr/bin/gcc
-    plugs: [home]
 
 #layout:
 #  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
