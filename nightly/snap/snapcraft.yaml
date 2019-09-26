@@ -91,6 +91,7 @@ parts:
       - libgcc1
       - libc6
       - libc6-dev
+      - linux-libc-dev
     build-packages:
       - gcc
       - git
