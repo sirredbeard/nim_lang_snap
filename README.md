@@ -62,9 +62,11 @@ Recommended for testing nightly builds of Nim. Likely contains bugs.
 
 ### Documentation
 
-HTML documentation and examples.
+Manual, HTML documentation, and and examples.
 
 `$ snap install nim-lang-docs`
+
+Note: Docs are accessible in /snap/nim-lang-docs/current/doc/.
 
 [Snapcraft Store](https://snapcraft.io/nim-lang-docs)
 
