@@ -53,18 +53,36 @@ parts:
     plugin: dump
     source: https://github.com/nim-lang/Nim.git
     override-build: |
-      sh build_all.sh --os linux --cpu amd64
+      
+      case "$SNAPCRAFT_ARCH_TRIPLET" in
+      "x86_64-linux-gnu")
+        arch="amd64"
+        ;;
+      "arm-linux-gnueabihf")
+        arch="armhf"
+        ;;
+      "aarch64-linux-gnu")
+        arch="arm64"
+        ;;
+      "i386-linux-gnu")
+        arch="i386"
+        ;;
+      *)
+        echo "Unsupported architecture $SNAPCRAFT_ARCH_TRIPLET"
+        exit 1
+        ;;
+      esac
+      
+      sh build_all.sh --os linux --cpu $arch
       ./koch docs
       rm bin/empty.txt
       chmod u+x bin/*
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin
-      mkdir "$SNAPCRAFT_PART_INSTALL"/config
       mkdir "$SNAPCRAFT_PART_INSTALL"/lib
       mkdir "$SNAPCRAFT_PART_INSTALL"/doc
       mkdir -p "$SNAPCRAFT_PART_INSTALL"/usr/bin
       mkdir "$SNAPCRAFT_PART_INSTALL"/usr/lib
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin
-      mv config/* "$SNAPCRAFT_PART_INSTALL"
       mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib
       mv doc/* "$SNAPCRAFT_PART_INSTALL"/doc
       mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"
