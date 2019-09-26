@@ -1,0 +1,23 @@
+name: nim-lang-docs
+summary: Nim programming language documentation.
+description: |
+  Nim is a compiled, garbage-collected systems programming language with 
+  a design that focuses on efficiency, expressiveness, and elegance.
+version: 'nightly'
+base: core18
+grade: stable
+confinement: strict
+architecture: all
+
+parts:
+  nim-docs-build:
+    plugin: dump
+    source: https://github.com/nim-lang/Nim.git
+    override-build: |
+      sh build_all.sh --os linux --cpu $arch
+      ./koch docs
+      mkdir "$SNAPCRAFT_PART_INSTALL"/doc
+      mv doc/* "$SNAPCRAFT_PART_INSTALL"/doc
+    build-packages:
+      - gcc
+      - git
