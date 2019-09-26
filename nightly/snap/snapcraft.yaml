@@ -89,3 +89,10 @@ parts:
     build-packages:
       - gcc
       - git
+    prime:
+      - -share/man
+      - -share/doc
+      - -usr/share/doc
+      - -usr/share/lintian
+      - -usr/share/man
+      - -usr/share/bug
