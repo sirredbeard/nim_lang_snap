@@ -59,12 +59,6 @@ parts:
       - libgcc1
       - libc6-dev
       - build-essential
-      - libbz2-1.0
-      - libc6
-      - libdb5.3
-      - liblzma5
-      - libstdc++6
-      - zlib1g
     build-packages:
       - gcc
       - git
