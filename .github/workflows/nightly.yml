@@ -15,7 +15,8 @@ jobs:
     - name: Build
       run: |
         cd nightly
-        snapcraft
+        snapcraft --target-arch=amd64
+        snapcraft --target-arch=i386
     - name: Push snap
       env:
         SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
