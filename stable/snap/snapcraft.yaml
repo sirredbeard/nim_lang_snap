@@ -38,9 +38,6 @@ apps:
   testament:
     command: bin/testament
     plugs: [home]
-  gcc:
-    command: usr/bin/gcc
-    plugs: [home]
 
 parts:
   nim-build:
