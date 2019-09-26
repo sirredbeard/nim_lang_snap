@@ -62,6 +62,7 @@ parts:
       mkdir "$SNAPCRAFT_PART_INSTALL"/lib
       mkdir "$SNAPCRAFT_PART_INSTALL"/doc
       mkdir -p "$SNAPCRAFT_PART_INSTALL"/usr/bin
+      mkdir "$SNAPCRAFT_PART_INSTALL"/usr/lib
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin/
       mv config/* "$SNAPCRAFT_PART_INSTALL"/
       mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib/
@@ -70,6 +71,9 @@ parts:
       mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/
       cp /usr/bin/gcc "$SNAPCRAFT_PART_INSTALL"/usr/bin/
       cp /usr/bin/clang "$SNAPCRAFT_PART_INSTALL"/usr/bin/
+      cp -a /usr/lib/clang "$SNAPCRAFT_PART_INSTALL"/usr/lib
+      cp -a /usr/lib/llvm-6.0 "$SNAPCRAFT_PART_INSTALL"/usr/lib
+      cp -a /usr/lib/gcc "$SNAPCRAFT_PART_INSTALL"/usr/lib
     build-packages:
       - gcc
       - git
