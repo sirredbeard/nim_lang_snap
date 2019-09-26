@@ -8,11 +8,15 @@ base: core18
 grade: devel
 confinement: strict
 
+plugs:
+  system-files:
+    read: [/usr/lib]
+
 apps:
   nim:
     command: bin/nim
     #completer: etc/bash_completion.d/nim
-    plugs: [home]
+    plugs: [home,system-files]
   nimble:
     command: bin/nimble
     #completer: etc/bash_completion.d/nimble
