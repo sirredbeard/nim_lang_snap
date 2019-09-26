@@ -90,6 +90,7 @@ parts:
       - libgcc-5-dev
       - libgcc1
       - libc6-dev
+      - glibc-source
     build-packages:
       - gcc
       - git
