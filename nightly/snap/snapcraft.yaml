@@ -71,7 +71,6 @@ parts:
       esac
       
       sh build_all.sh --os linux --cpu $arch
-      ./koch docs
       rm bin/empty.txt
       chmod u+x bin/*
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin

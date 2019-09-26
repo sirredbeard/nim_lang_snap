@@ -52,7 +52,6 @@ parts:
       sh build_all.sh  --os linux --cpu amd64
       bin/nim c koch
       ./koch tools
-      ./koch docs
       rm bin/empty.txt
       chmod u+x bin/*
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin
