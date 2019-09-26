@@ -50,7 +50,6 @@ parts:
       ./koch tools
       rm bin/empty.txt
       chmod u+x bin/*
-      mkdir "$SNAPCRAFT_PART_INSTALL"/lib
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin
       mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib
       mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"
