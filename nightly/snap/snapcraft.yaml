@@ -80,9 +80,9 @@ parts:
       chmod u+x bin/*
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin
-      #"$SNAPCRAFT_PART_INSTALL"/bin/nimble refresh
       mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib
-      mkdir -p "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d
+      #"$SNAPCRAFT_PART_INSTALL"/bin/nimble refresh
+      #mkdir -p "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d
       #mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nim
       #mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nimble
     stage-packages:
@@ -94,12 +94,10 @@ parts:
     build-packages:
       - gcc
       - git
-    prime:
-      - -share/man
-      - -share/doc
-      - -usr/share/doc
-      - -usr/share/lintian
-      - -usr/share/man
-      - -usr/share/bug
-      - usr/lib/$SNAPCRAFT_ARCH_TRIPLET
-      - usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET
+    #prime:
+      #- -share/man
+      #- -share/doc
+      #- -usr/share/doc
+      #- -usr/share/lintian
+      #- -usr/share/man
+      #- -usr/share/bug

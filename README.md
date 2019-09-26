@@ -147,3 +147,9 @@ sudo bash -c 'snap alias nim-lang.nim nim ;\
      snap alias nim-lang.nimgrep nimgrep ;\
      snap alias nim-lang.nimsuggest nimsuggest'
 ```
+
+## Issues
+
+* [Known Bugs](https://github.com/sirredbeard/nim_lang_snap/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+* [Enhancements](https://github.com/sirredbeard/nim_lang_snap/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
+* [Help Needed](https://github.com/sirredbeard/nim_lang_snap/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
