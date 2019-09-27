@@ -94,18 +94,22 @@ parts:
       #mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nim
       #mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nimble
     stage-packages:
-      - gcc
+      - gcc-5
       - g++
-      - glibc
+      - glibc-source
       - libgcc
       - libgcc-5-dev
       - libgcc-7-dev
       - libgcc1
       - libc6
+      - libc6-amd64
       - libc6-dev
       - libc6-dev-amd64
+      - libc-bin
+      - libc-dev-bin
       - linux-libc-dev
       - build-essential
+      - binutils
     build-packages:
       - gcc
       - git
