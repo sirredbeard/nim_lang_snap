@@ -10,7 +10,7 @@ confinement: strict
 
 plugs:
   system-files:
-    read: [/usr/lib]
+    read: [/usr/lib,/usr/lib/gcc,/usr/include]
 
 apps:
   nim:
@@ -43,13 +43,17 @@ apps:
     command: bin/testament
     plugs: [home]
 
-#layout:
-#  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
-#    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
+layout:
+  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
+    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
 
-#layout:
-#  /usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET:
-#    bind: $SNAP/usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET
+layout:
+  /usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET:
+    bind: $SNAP/usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET
+
+layout:
+  /usr/include:
+    bind: $SNAP/usr/include
 
 parts:
   nim-build:
