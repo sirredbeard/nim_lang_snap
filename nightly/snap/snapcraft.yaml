@@ -7,7 +7,7 @@ version: 'nightly'
 base: core18
 grade: devel
 confinement: strict
-
+cd
 #plugs:
 #  system-files:
 #    read: [/usr/lib,/usr/lib/gcc,/usr/include]
@@ -44,17 +44,17 @@ apps:
     command: bin/testament
     plugs: [home]
 
-#layout:
-#  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
-#    bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
+layout:
+  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
+    bind: $SNAP_DATA/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
 
-#layout:
-#  /usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET:
-#    bind: $SNAP/usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET
+layout:
+  /usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET:
+    bind: $SNAP_DATA/usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET
 
-#layout:
-#  /usr/include:
-#    bind: $SNAP/usr/include
+layout:
+  /usr/include:
+    bind: $SNAP_DATA/usr/include
 
 parts:
   nim-build:
@@ -87,8 +87,8 @@ parts:
       #mkdir "$SNAPCRAFT_PART_INSTALL"/bin
       mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin
       mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib
-      mkdir -p "$SNAPCRAFT_PART_INSTALL"/usr/lib
-      cp -arL /usr/lib "$SNAPCRAFT_PART_INSTALL"/usr/lib
+      #mkdir -p "$SNAPCRAFT_PART_INSTALL"/usr/lib
+      #cp -arL /usr/lib "$SNAPCRAFT_PART_INSTALL"/usr/lib
       #"$SNAPCRAFT_PART_INSTALL"/bin/nimble refresh
       #mkdir -p "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d
       #mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nim
