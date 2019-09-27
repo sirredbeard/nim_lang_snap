@@ -97,7 +97,6 @@ parts:
       - gcc-5
       - g++
       - glibc-source
-      - libgcc
       - libgcc-5-dev
       - libgcc-7-dev
       - libgcc1
