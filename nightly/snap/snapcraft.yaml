@@ -17,6 +17,7 @@ apps:
     command: bin/nim
     #completer: etc/bash_completion.d/nim
     #plugs: [home,system-files]
+    plugs: [home]
   nimble:
     command: bin/nimble
     #completer: etc/bash_completion.d/nimble
