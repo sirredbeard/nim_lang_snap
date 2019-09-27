@@ -7,7 +7,7 @@ version: 'nightly'
 base: core18
 grade: devel
 confinement: strict
-cd
+
 #plugs:
 #  system-files:
 #    read: [/usr/lib,/usr/lib/gcc,/usr/include]
