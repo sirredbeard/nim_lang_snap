@@ -6,7 +6,7 @@ description: |
 version: VERSION
 base: core18
 grade: stable
-confinement: strict
+confinement: classic
 
 apps:
   nim:
@@ -48,15 +48,6 @@ parts:
       ./koch tools
       rm bin/empty.txt
       chmod u+x bin/*
-      mkdir "$SNAPCRAFT_PART_INSTALL"/bin
-      mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin
-      mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib
-    stage-packages:
-      - gcc
-      - libgcc-5-dev
-      - libgcc1
-      - libc6-dev
-      - linux-libc-dev
     build-packages:
       - gcc
       - git
