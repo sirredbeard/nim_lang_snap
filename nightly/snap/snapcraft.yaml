@@ -65,6 +65,7 @@ parts:
       sh build_all.sh --os linux --cpu $arch
       rm bin/empty.txt
       chmod u+x bin/*
+      mkdir "$SNAPCRAFT_PART_INSTALL"/bin
       cp bin/* "$SNAPCRAFT_PART_INSTALL"/bin*
       #"$SNAPCRAFT_PART_INSTALL"/bin/nimble refresh
       #mkdir -p "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d
