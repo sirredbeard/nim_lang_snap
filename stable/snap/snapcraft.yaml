@@ -12,9 +12,11 @@ apps:
   nim:
     command: bin/nim
     plugs: [home]
+    completer: nim.sh
   nimble:
     command: bin/nimble
     plugs: [home, network]
+    completer: nimble.sh
   nimcsources:
     command: bin/nim_csources
     plugs: [home]
