@@ -49,7 +49,7 @@ parts:
       rm bin/empty.txt
       chmod u+x bin/*
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin
-      cp bin/* "$SNAPCRAFT_PART_INSTALL"/bin*
+      cp bin/* "$SNAPCRAFT_PART_INSTALL"/bin
     build-packages:
       - gcc
       - git

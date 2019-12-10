@@ -72,8 +72,8 @@ parts:
       chmod u+x bin/*
 
       #prepare and copy binaries to snap
-      mkdir "$SNAPCRAFT_PART_INSTALL"/bin
-      cp -v bin/* "$SNAPCRAFT_PART_INSTALL"/bin/*
+      #mkdir "$SNAPCRAFT_PART_INSTALL"/bin
+      cp -v bin/* "$SNAPCRAFT_PART_INSTALL"/bin
 
       #copy bash completion scripts into place
       mkdir -p "$SNAPCRAFT_PART_INSTALL"/usr/share/bash-completion/completions/
