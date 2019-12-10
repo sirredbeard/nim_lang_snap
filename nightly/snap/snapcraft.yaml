@@ -12,9 +12,11 @@ apps:
   nim:
     command: bin/nim
     plugs: [home]
+    completer: nim.sh
   nimble:
     command: bin/nimble
     plugs: [home, network]
+    completer: nimble.sh
   nimcsources:
     command: bin/nim_csources
     plugs: [home]
@@ -62,15 +64,21 @@ parts:
         ;;
       esac
       
+      #build nim
       sh build_all.sh --os linux --cpu $arch
+
+      #cleanup and set permissions
       rm bin/empty.txt
       chmod u+x bin/*
+
+      #prepare and copy binaries to snap
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin
-      cp bin/* "$SNAPCRAFT_PART_INSTALL"/bin*
-      "$SNAPCRAFT_PART_INSTALL"/bin/nimble refresh
-      #mkdir -p "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d
-      #mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nim
-      #mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nimble
+      cp -v bin/* "$SNAPCRAFT_PART_INSTALL"/bin/*
+
+      #copy bash completion scripts into place
+      mkdir -p "$SNAPCRAFT_PART_INSTALL"/usr/share/bash-completion/completions/
+      cp -v tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/usr/share/bash-completion/completions/nim.sh
+      cp -v dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/usr/share/bash-completion/completions/nimble.sh
     build-packages:
       - gcc
       - git
