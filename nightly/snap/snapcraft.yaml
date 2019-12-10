@@ -67,7 +67,7 @@ parts:
       chmod u+x bin/*
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin
       cp bin/* "$SNAPCRAFT_PART_INSTALL"/bin*
-      #"$SNAPCRAFT_PART_INSTALL"/bin/nimble refresh
+      "$SNAPCRAFT_PART_INSTALL"/bin/nimble refresh
       #mkdir -p "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d
       #mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nim
       #mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nimble
