@@ -1,4 +1,0 @@
-#!/bin/sh -e
-echo "refreshing nimble packag repository"
-mkdir ~/.nimble/*
-cp -rv /snap/nim-lang-nightly/current/.nimble/* ~/.nimble/*

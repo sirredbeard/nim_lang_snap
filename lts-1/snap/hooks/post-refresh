@@ -1,3 +1,0 @@
-#!/bin/sh -e
-echo "refreshing nimble package repository"
-nim-lang-nightly.nimble refresh
