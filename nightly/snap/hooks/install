@@ -1,0 +1,3 @@
+#!/bin/sh -e
+echo "refreshing nimble packag repository"
+cp /snap/nim-lang-nightly/current/.nimble/ ~/.nimble/

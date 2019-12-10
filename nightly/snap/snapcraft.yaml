@@ -75,6 +75,10 @@ parts:
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin
       cp -v bin/* "$SNAPCRAFT_PART_INSTALL"/bin
 
+      #get nimble package repository
+      bin/nimble refresh
+      cp -rv ~/.nimble "$SNAPCRAFT_PRIME"
+
       #copy bash completion scripts into place
       cp -v tools/nim.bash-completion "$SNAPCRAFT_PRIME"/nim.sh
       cp -v dist/nimble/nimble.bash-completion "$SNAPCRAFT_PRIME"/nimble.sh
