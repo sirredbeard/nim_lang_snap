@@ -6,21 +6,14 @@ description: |
 version: 'nightly'
 base: core18
 grade: devel
-confinement: strict
-
-#plugs:
-#  system-files:
-#    read: [/usr/lib,/usr/lib/gcc,/usr/include]
+confinement: classic
 
 apps:
   nim:
     command: bin/nim
-    #completer: etc/bash_completion.d/nim
-    #plugs: [home,system-files]
     plugs: [home]
   nimble:
     command: bin/nimble
-    #completer: etc/bash_completion.d/nimble
     plugs: [home, network]
   nimcsources:
     command: bin/nim_csources
@@ -43,18 +36,6 @@ apps:
   testament:
     command: bin/testament
     plugs: [home]
-
-layout:
-  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET:
-    bind: $SNAP_DATA/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
-
-layout:
-  /usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET:
-    bind: $SNAP_DATA/usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET
-
-layout:
-  /usr/include:
-    bind: $SNAP_DATA/usr/include
 
 parts:
   nim-build:
@@ -84,36 +65,11 @@ parts:
       sh build_all.sh --os linux --cpu $arch
       rm bin/empty.txt
       chmod u+x bin/*
-      #mkdir "$SNAPCRAFT_PART_INSTALL"/bin
-      mv bin/* "$SNAPCRAFT_PART_INSTALL"/bin
-      mv lib/* "$SNAPCRAFT_PART_INSTALL"/lib
-      #mkdir -p "$SNAPCRAFT_PART_INSTALL"/usr/lib
-      #cp -arL /usr/lib "$SNAPCRAFT_PART_INSTALL"/usr/lib
+      cp bin/* "$SNAPCRAFT_PART_INSTALL"/bin*
       #"$SNAPCRAFT_PART_INSTALL"/bin/nimble refresh
       #mkdir -p "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d
       #mv tools/nim.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nim
       #mv dist/nimble/nimble.bash-completion "$SNAPCRAFT_PART_INSTALL"/etc/bash_completion.d/nimble
-    stage-packages:
-      - gcc-5
-      - g++
-      - glibc-source
-      - libgcc-5-dev
-      - libgcc-7-dev
-      - libgcc1
-      - libc6
-      - libc6-dev
-      - libc-bin
-      - libc-dev-bin
-      - linux-libc-dev
-      - build-essential
-      - binutils
     build-packages:
       - gcc
       - git
-    #prime:
-      #- -share/man
-      #- -share/doc
-      #- -usr/share/doc
-      #- -usr/share/lintian
-      #- -usr/share/man
-      #- -usr/share/bug
