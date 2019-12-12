@@ -67,7 +67,7 @@ parts:
       #build nim
       sh build_all.sh --os linux --cpu $arch
 
-      #cleanup and set permissions
+      #cleanup misc files and set permissions
       rm bin/empty.txt
       chmod u+x bin/*
 
