@@ -65,6 +65,10 @@ parts:
       #prepare and copy binaries to snap
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin
       cp -v bin/* "$SNAPCRAFT_PART_INSTALL"/bin
+      
+      #prepare and copy libraries to snap
+      mkdir "$SNAPCRAFT_PART_INSTALL"/lib
+      cp -r lib/* "$SNAPCRAFT_PART_INSTALL"/lib
 
       #copy bash completion scripts into place
       cp -v tools/nim.bash-completion "$SNAPCRAFT_PRIME"/nim.sh
