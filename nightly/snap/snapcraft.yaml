@@ -19,8 +19,6 @@ apps:
     command: bin/nim_csources
   nimfind:
     command: bin/nimfind
-  nimgdb:
-    command: bin/nim-gdb
   nimgrep:
     command: bin/nimgrep
   nimpretty:
@@ -63,11 +61,11 @@ parts:
       chmod u+x bin/*
 
       #prepare and copy binaries to snap
-      mkdir "$SNAPCRAFT_PART_INSTALL"/bin
+      #mkdir "$SNAPCRAFT_PART_INSTALL"/bin
       cp -v bin/* "$SNAPCRAFT_PART_INSTALL"/bin
       
       #prepare and copy libraries to snap
-      mkdir "$SNAPCRAFT_PART_INSTALL"/lib
+      #mkdir "$SNAPCRAFT_PART_INSTALL"/lib
       cp -r lib/* "$SNAPCRAFT_PART_INSTALL"/lib
 
       #copy bash completion scripts into place
@@ -76,3 +74,5 @@ parts:
     build-packages:
       - gcc
       - git
+    stage-packages:
+      - libc6
