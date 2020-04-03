@@ -43,10 +43,12 @@ parts:
       chmod u+x bin/*
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin
       cp bin/* "$SNAPCRAFT_PART_INSTALL"/bin
-      mkdir "$SNAPCRAFT_PART_INSTALL"/lib
+      #mkdir "$SNAPCRAFT_PART_INSTALL"/lib (no longer needed)
       cp -r lib/* "$SNAPCRAFT_PART_INSTALL"/lib
       cp -v tools/nim.bash-completion "$SNAPCRAFT_PRIME"/nim.sh
       cp -v dist/nimble/nimble.bash-completion "$SNAPCRAFT_PRIME"/nimble.sh
     build-packages:
       - gcc
       - git
+    stage-packages:
+      - libc6
