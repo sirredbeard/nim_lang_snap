@@ -32,7 +32,7 @@ jobs:
         git config --global user.email "you@example.com"
         git config --global user.name "Your Name"
         cd stable
-        snapcraft remote-build --launchpad-accept-public-upload --build-on=s390x,ppc64el,arm64,armhf,amd64,i386
+        snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el,arm64,armhf,amd64,i386
     - name: Push snap to Snap Store
       env:
         SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
@@ -40,7 +40,7 @@ jobs:
         cd stable
         mkdir .snapcraft
         echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
-        architectures=(s390x ppc64el arm64 armhf amd64 i386)
+        architectures=(ppc64el arm64 armhf amd64 i386)
         for i in "${architectures[@]}"
         do
           snapcraft push --release=stable *$i.snap

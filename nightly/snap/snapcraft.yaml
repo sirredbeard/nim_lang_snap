@@ -50,7 +50,7 @@ parts:
       "s390x-linux-gnu")
         arch="s390"
         ;;
-      "ppc64el-linux-gnu")
+      "powerpc64le-linux-gnu")
         arch="ppc64el"
         ;;
       *)
