@@ -19,7 +19,7 @@ jobs:
         sudo apt-get update
         sudo apt-get remove snapcraft -y
         sudo apt-get install snapd -y
-        snap install snapcraft
+        sudo snap install snapcraft
         mkdir -p $HOME/.local/share/snapcraft/provider/launchpad/
         echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
         cd nightly
