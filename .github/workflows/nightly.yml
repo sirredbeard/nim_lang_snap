@@ -15,12 +15,7 @@ jobs:
     - name: Build
       env:
         REMOTE_BUILD_CREDENTIALS: ${{ secrets.REMOTE_BUILD_CREDENTIALS }}
-      run: |
-        
-        #temporary
-        git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
-        
+      run: |        
         mkdir -p $HOME/.local/share/snapcraft/provider/launchpad/
         echo ${REMOTE_BUILD_CREDENTIALS} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
         cd nightly

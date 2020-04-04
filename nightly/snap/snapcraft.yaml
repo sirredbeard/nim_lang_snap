@@ -8,7 +8,7 @@ base: core18
 grade: devel
 confinement: classic
 architectures:
-  - build-on: [arm64, armhf, amd64, i386]
+  - build-on: [s390x, ppc64el, arm64, armhf, amd64, i386]
 
 apps:
   nim:
@@ -48,6 +48,12 @@ parts:
         ;;
       "i386-linux-gnu")
         arch="i386"
+        ;;
+      "s390x-linux-gnu")
+        arch="s390"
+        ;;
+      "ppc64el-linux-gnu")
+        arch="ppc64el"
         ;;
       *)
         echo "Unsupported architecture $SNAPCRAFT_ARCH_TRIPLET"
