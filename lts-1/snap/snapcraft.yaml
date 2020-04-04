@@ -7,6 +7,8 @@ version: VERSION
 base: core18
 grade: stable
 confinement: classic
+architectures:
+  - build-on: [s390x, ppc64el, arm64, armhf, amd64, i386]
 
 apps:
   nim:
@@ -36,14 +38,39 @@ parts:
     source-type: tar
     plugin: autotools
     override-build: |
-      sh build_all.sh --os linux --cpu amd64
+
+      case "$SNAPCRAFT_ARCH_TRIPLET" in
+      "x86_64-linux-gnu")
+        arch="amd64"
+        ;;
+      "arm-linux-gnueabihf")
+        arch="armhf"
+        ;;
+      "aarch64-linux-gnu")
+        arch="arm64"
+        ;;
+      "i386-linux-gnu")
+        arch="i386"
+        ;;
+      "s390x-linux-gnu")
+        arch="s390"
+        ;;
+      "ppc64el-linux-gnu")
+        arch="ppc64el"
+        ;;
+      *)
+        echo "Unsupported architecture $SNAPCRAFT_ARCH_TRIPLET"
+        exit 1
+        ;;
+      esac
+
+      sh build_all.sh --os linux --cpu $arch
       bin/nim c koch
       ./koch tools
       rm bin/empty.txt
       chmod u+x bin/*
       mkdir "$SNAPCRAFT_PART_INSTALL"/bin
       cp bin/* "$SNAPCRAFT_PART_INSTALL"/bin
-      #mkdir "$SNAPCRAFT_PART_INSTALL"/lib (no longer needed)
       cp -r lib/* "$SNAPCRAFT_PART_INSTALL"/lib
       cp -v tools/nim.bash-completion "$SNAPCRAFT_PRIME"/nim.sh
       cp -v dist/nimble/nimble.bash-completion "$SNAPCRAFT_PRIME"/nimble.sh

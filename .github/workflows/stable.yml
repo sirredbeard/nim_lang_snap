@@ -12,7 +12,7 @@ jobs:
       image: snapcore/snapcraft
     steps:
     - uses: actions/checkout@v1
-    - name: Configure template
+    - name: Configure snapcraft.yaml
       run: |
         sudo apt-get update
         apt-get install python3-pip python3-setuptools python3-wheel -y
@@ -23,11 +23,14 @@ jobs:
         RELEASEURL=$(su temp -c "~/.local/bin/lastversion --assets nim-lang/Nim")
         sed -i "s/VERSION/$VERSION/g" "stable/snap/snapcraft.yaml"
         sed -i "s*RELEASEURL*$RELEASEURL*g" "stable/snap/snapcraft.yaml"
-    - name: Build snap
-      run: |
-        cd stable
-        snapcraft
-    - name: Push snap
+    - name: Build snap on Launchpad using remote-build
+      env:
+        REMOTE_BUILD_CREDENTIALS: ${{ secrets.REMOTE_BUILD_CREDENTIALS }}
+      run: |        
+        echo ${REMOTE_BUILD_CREDENTIALS} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
+        cd nightly
+        snapcraft remote-build --launchpad-accept-public-upload
+    - name: Push snap to Snap Store
       env:
         SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
       run: |
