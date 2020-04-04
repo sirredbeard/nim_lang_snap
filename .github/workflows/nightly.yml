@@ -18,6 +18,8 @@ jobs:
       run: |        
         mkdir -p $HOME/.local/share/snapcraft/provider/launchpad/
         echo ${REMOTE_BUILD_CREDENTIALS} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
         cd nightly
         snapcraft remote-build --launchpad-accept-public-upload
     - name: Push snap to Snap Store
