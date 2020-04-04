@@ -7,19 +7,20 @@ on:
    - cron: 0 22 * * *
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     container:
       image: ubuntudesktop/gnome-3-28-1804
     steps:
     - uses: actions/checkout@v1
     - name: Build
       env:
-        SNAPCRAFT_LOGIN_FILE: ${{ secrets.REMOTE_BUILD_CREDENTIALS }}
+        REMOTE_BUILD_CREDENTIALS: ${{ secrets.REMOTE_BUILD_CREDENTIALS }}
+        LAUNCHPAD_USERNAME: ${{ secrets.LAUNCHPAD_USERNAME }}
       run: |
         mkdir -p $HOME/.local/share/snapcraft/provider/launchpad/
-        echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
+        echo ${REMOTE_BUILD_CREDENTIALS} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
         cd nightly
-        snapcraft remote-build --launchpad-accept-public-upload
+        snapcraft remote-build --launchpad-accept-public-upload --launchpad-user ${LAUNCHPAD_USERNAME}
     - name: Push snap
       env:
         SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
