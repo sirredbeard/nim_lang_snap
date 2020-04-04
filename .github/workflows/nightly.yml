@@ -7,7 +7,7 @@ on:
    - cron: 0 22 * * *
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     container:
       image: snapcore/snapcraft
     steps:
@@ -17,9 +17,8 @@ jobs:
         SNAPCRAFT_LOGIN_FILE: ${{ secrets.REMOTE_BUILD_CREDENTIALS }}
       run: |
         sudo apt-get update
-        sudo apt-get remove snapcraft -y
-        sudo apt-get install snapd -y
-        sudo snap install snapcraft
+        sudo apt-get remove snapcraft -y --purge
+        snap install snapcraft
         mkdir -p $HOME/.local/share/snapcraft/provider/launchpad/
         echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
         cd nightly
