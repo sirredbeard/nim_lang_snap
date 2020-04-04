@@ -42,7 +42,7 @@ parts:
         arch="armhf"
         ;;
       "aarch64-linux-gnu")
-        arch="arm64"
+        arch="aarch64"
         ;;
       "i386-linux-gnu")
         arch="i386"

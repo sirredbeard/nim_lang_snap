@@ -25,3 +25,4 @@ jobs:
         mkdir .snapcraft
         echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
         snapcraft push --release=stable *.snap
+        

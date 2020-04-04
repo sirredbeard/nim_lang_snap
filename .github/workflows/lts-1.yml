@@ -39,4 +39,8 @@ jobs:
         cd lts-1
         mkdir .snapcraft
         echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
-        snapcraft push --release=stable *.snap
+        architectures=(s390x ppc64el arm64 armhf amd64 i386)
+        for i in "${architectures[@]}"
+        do
+          snapcraft push --release=stable *$i.snap
+        done

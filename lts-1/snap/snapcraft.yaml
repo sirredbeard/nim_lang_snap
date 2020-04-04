@@ -19,8 +19,6 @@ apps:
     command: bin/nim_csources
   nimfind:
     command: bin/nimfind
-  nimgdb:
-    command: bin/nim-gdb
   nimgrep:
     command: bin/nimgrep
   nimpretty:
@@ -45,7 +43,7 @@ parts:
         arch="armhf"
         ;;
       "aarch64-linux-gnu")
-        arch="arm64"
+        arch="aarch64"
         ;;
       "i386-linux-gnu")
         arch="i386"
