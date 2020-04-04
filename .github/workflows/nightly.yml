@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ubuntudesktop/gnome-3-28-1804
+      image: sirredbeard/bionic-snap-build
     steps:
     - uses: actions/checkout@v1
     - name: Build
