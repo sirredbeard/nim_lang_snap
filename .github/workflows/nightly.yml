@@ -15,12 +15,11 @@ jobs:
     - name: Build
       env:
         REMOTE_BUILD_CREDENTIALS: ${{ secrets.REMOTE_BUILD_CREDENTIALS }}
-        LAUNCHPAD_USERNAME: ${{ secrets.LAUNCHPAD_USERNAME }}
       run: |
-        mkdir -p $HOME/.local/share/snapcraft/provider/launchpad/
+        mkdir -p $HOME/.local/share/snapcraft/provider/launchpad/credentials
         echo ${REMOTE_BUILD_CREDENTIALS} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
         cd nightly
-        snapcraft remote-build --launchpad-accept-public-upload --launchpad-user ${LAUNCHPAD_USERNAME}
+        snapcraft remote-build --launchpad-accept-public-upload
     - name: Push snap
       env:
         SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
