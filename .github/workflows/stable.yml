@@ -40,8 +40,7 @@ jobs:
         cd stable
         mkdir .snapcraft
         echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
-        architectures=(ppc64el arm64 armhf amd64 i386)
-        for i in "${architectures[@]}"
-        do
-          snapcraft push --release=stable *$i.snap
+        ARCHS="ppc64el arm64 armhf amd64 i386"
+        for ARCH in ${ARCHS}; do
+          snapcraft push --release=stable *${ARCH}.snap
         done
