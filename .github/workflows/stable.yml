@@ -27,6 +27,7 @@ jobs:
       env:
         REMOTE_BUILD_CREDENTIALS: ${{ secrets.REMOTE_BUILD_CREDENTIALS }}
       run: |        
+        mkdir -p $HOME/.local/share/snapcraft/provider/launchpad/
         echo ${REMOTE_BUILD_CREDENTIALS} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
         cd nightly
         snapcraft remote-build --launchpad-accept-public-upload
