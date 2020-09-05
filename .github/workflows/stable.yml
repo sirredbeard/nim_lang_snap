@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: snapcore/snapcraft
     steps:
     - uses: actions/checkout@v1
     - name: Configure snapcraft.yaml
@@ -16,8 +18,6 @@ jobs:
         sudo apt-get install python3-pip python3-setuptools python3-wheel -y
         sudo useradd -m temp
         sudo chown -R temp /home/temp
-        echo "import pty; pty.spawn('/bin/bash')" > /tmp/spawnptyforsu.py
-        python /tmp/spawnptyforsu.py
         su temp -c "pip3 install lastversion"
         VERSION=$(su temp -c "~/.local/bin/lastversion nim-lang/Nim")
         RELEASEURL=$(su temp -c "~/.local/bin/lastversion --assets nim-lang/Nim")
