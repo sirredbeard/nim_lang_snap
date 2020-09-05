@@ -13,9 +13,9 @@ jobs:
     - name: Configure snapcraft.yaml
       run: |
         sudo apt-get update
-        apt-get install python3-pip python3-setuptools python3-wheel -y
-        useradd -m temp
-        chown -R temp /home/temp
+        sudo apt-get install python3-pip python3-setuptools python3-wheel -y
+        sudo useradd -m temp
+        sudo chown -R temp /home/temp
         su temp -c "pip3 install lastversion"
         VERSION=$(su temp -c "~/.local/bin/lastversion nim-lang/Nim")
         RELEASEURL=$(su temp -c "~/.local/bin/lastversion --assets nim-lang/Nim")
@@ -25,8 +25,8 @@ jobs:
       env:
         REMOTE_BUILD_CREDENTIALS: ${{ secrets.REMOTE_BUILD_CREDENTIALS }}
       run: |        
-        apt-get install snapd python3-pip python3-setuptools python3-wheel -y
-        snap install snapcraft
+        sudo apt-get install snapd python3-pip python3-setuptools python3-wheel -y
+        sudo snap install snapcraft
         mkdir -p $HOME/.local/share/snapcraft/provider/launchpad/
         echo ${REMOTE_BUILD_CREDENTIALS} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
         git config --global user.email "you@example.com"
