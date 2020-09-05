@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: sirredbeard/snap-build
+      image: snapcore/snapcraft
     steps:
     - uses: actions/checkout@v1
     - name: Configure snapcraft.yaml

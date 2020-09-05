@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: sirredbeard/snap-build
+      image: snapcore/snapcraft
     steps:
     - uses: actions/checkout@v1
     - name: Build snap on Launchpad using remote-build
