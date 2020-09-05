@@ -28,6 +28,7 @@ jobs:
         REMOTE_BUILD_CREDENTIALS: ${{ secrets.REMOTE_BUILD_CREDENTIALS }}
       run: |        
         sudo apt-get install snapd python3-pip python3-setuptools python3-wheel -y
+        sudo systemctl start snapd.service
         sudo snap install snapcraft
         mkdir -p $HOME/.local/share/snapcraft/provider/launchpad/
         echo ${REMOTE_BUILD_CREDENTIALS} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
