@@ -33,8 +33,7 @@ jobs:
         git config --global user.email "you@example.com"
         git config --global user.name "Your Name"
         cd stable
-        snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el,amd64,i386
-      #snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el,arm64,armhf,amd64,i386
+        snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el,arm64,armhf,amd64,i386
     - name: Upload snap to Snap Store
       env:
         SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
@@ -42,8 +41,7 @@ jobs:
         cd stable
         mkdir .snapcraft
         echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
-        ARCHS="ppc64el amd64 i386"
+        ARCHS="ppc64el arm64 armhf amd64 i386"
         for ARCH in ${ARCHS}; do
           snapcraft upload --release=stable *${ARCH}.snap || continue
         done
-      #ARCHS="ppc64el arm64 armhf amd64 i386"
