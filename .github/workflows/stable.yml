@@ -16,7 +16,9 @@ jobs:
         sudo apt-get install python3-pip python3-setuptools python3-wheel -y
         sudo useradd -m temp
         sudo chown -R temp /home/temp
-        sudo -u temp "pip3 install lastversion"
+        echo "import pty; pty.spawn('/bin/bash')" > /tmp/spawnptyforsu.py
+        python /tmp/spawnptyforsu.py
+        su temp -c "pip3 install lastversion"
         VERSION=$(su temp -c "~/.local/bin/lastversion nim-lang/Nim")
         RELEASEURL=$(su temp -c "~/.local/bin/lastversion --assets nim-lang/Nim")
         sed -i "s/VERSION/$VERSION/g" "stable/snap/snapcraft.yaml"
