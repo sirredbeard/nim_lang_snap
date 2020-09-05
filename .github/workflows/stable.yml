@@ -32,6 +32,7 @@ jobs:
         git config --global user.email "you@example.com"
         git config --global user.name "Your Name"
         cd stable
+        snap refresh
         snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el,arm64,armhf,amd64,i386
     - name: Push snap to Snap Store
       env:
