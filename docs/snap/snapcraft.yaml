@@ -22,5 +22,6 @@ parts:
       mv doc/* "$SNAPCRAFT_PART_INSTALL"/doc
     build-packages:
       - gcc
+      - g++
       - git
       
