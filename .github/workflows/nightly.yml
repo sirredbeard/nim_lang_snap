@@ -31,7 +31,7 @@ jobs:
         mkdir .snapcraft
         echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
         ARCHS="amd64" 
-      #ARCHS="ppc64el arm64 armhf amd64 i386"
         for ARCH in ${ARCHS}; do
           snapcraft upload --release=edge *${ARCH}.snap
         done
+      #ARCHS="ppc64el arm64 armhf amd64 i386"
