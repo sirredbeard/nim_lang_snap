@@ -30,13 +30,16 @@ jobs:
         mkdir -p $HOME/.local/share/snapcraft/provider/launchpad/
         echo ${REMOTE_BUILD_CREDENTIALS} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
 
-    - name: Seed snapcraft store credentials into container
+    - name: Seed Snapcraft Store credentials into container
       env:
         SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
       run: |
         cd lts-1
         mkdir .snapcraft
-        echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg 
+        echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
+
+    - name: Configure git global settings for snapcraft
+      run: git config --global user.email "you@example.com" && git config --global user.name "Your Name"
 
     - name: Build ppc64el snap on Launchpad using remote-build 
       continue-on-error: true
@@ -47,8 +50,8 @@ jobs:
     - name: Upload ppc64el build log as artifact
       uses: actions/upload-artifact@v2.2.1
       with:
-        name: nim-lang-lts-1_ppc64el.txt.txt
-        path: nim-lang-lts-1_ppc64el.txt.txt
+        name: nim-lang-lts-1_ppc64el.txt
+        path: nim-lang-lts-1_ppc64el.txt
         retention-days: 3
     - name: Upload ppc64el snap to Snapcraft Store
       continue-on-error: true
@@ -66,8 +69,8 @@ jobs:
     - name: Upload amd64 build log as artifact
       uses: actions/upload-artifact@v2.2.1
       with:
-        name: nim-lang-lts-1_amd64.txt.txt
-        path: nim-lang-lts-1_amd64.txt.txt
+        name: nim-lang-lts-1_amd64.txt
+        path: nim-lang-lts-1_amd64.txt
         retention-days: 3
     - name: Upload amd64 snap to Snapcraft Store
       continue-on-error: true
