@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/sirredbeard/snap-build
+      image: docker.pkg.github.com/sirredbeard/snap-build/snap-build:latest
 
     steps:
     - uses: actions/checkout@v1
