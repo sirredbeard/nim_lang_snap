@@ -20,8 +20,6 @@ jobs:
       run: |
         VERSION=$(curl --silent "https://api.github.com/repos/nim-lang/Nim/tags" | jq '.[].name' | grep 'v1.0.' | awk 'min == "" || $1<min{min=$1} $1>max{max=$1} END{print max}' | tr -d 'v' | tr -d '"')
         RELEASEURL="https://github.com/nim-lang/Nim/archive/v"$VERSION".tar.gz"
-        echo $VERSION
-        echo $RELEASEURL
         sed -i "s/VERSION/$VERSION/g" "lts-1/snap/snapcraft.yaml"
         sed -i "s*RELEASEURL*$RELEASEURL*g" "lts-1/snap/snapcraft.yaml"
 
@@ -49,9 +47,7 @@ jobs:
       run: |         
         cd lts-1
         snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el
-        ls -a
         snapcraft upload --release=stable *ppc64el.snap
-        ls -a
     - name: Upload ppc64el build log as artifact
       uses: actions/upload-artifact@v2.2.1
       with:
@@ -70,7 +66,7 @@ jobs:
       uses: actions/upload-artifact@v2.2.1
       with:
         name: nim-lang-lts-1_amd64.txt
-        path: $HOME/lts-1/nim-lang-lts-1_amd64.txt
+        path: lts-1/nim-lang-lts-1_amd64.txt
         retention-days: 3
 
     - name: Build i386 snap on Launchpad using remote-build 
@@ -84,7 +80,7 @@ jobs:
       uses: actions/upload-artifact@v2.2.1
       with:
         name: nim-lang-lts-1_i386.txt
-        path: $HOME/lts-1/nim-lang-lts-1_i386.txt
+        path: lts-1/nim-lang-lts-1_i386.txt
         retention-days: 3                  
 
     - name: Build arm64 snap on Launchpad using remote-build 
@@ -98,7 +94,7 @@ jobs:
       uses: actions/upload-artifact@v2.2.1
       with:
         name: nim-lang-lts-1_arm64.txt
-        path: $HOME/lts-1/nim-lang-lts-1_arm64.txt
+        path: lts-1/nim-lang-lts-1_arm64.txt
         retention-days: 3                  
 
     - name: Build armhf snap on Launchpad using remote-build 
@@ -112,5 +108,5 @@ jobs:
       uses: actions/upload-artifact@v2.2.1
       with:
         name: nim-lang-lts-1_armhf.txt
-        path: $HOME/lts-1/nim-lang-lts-1_armhf.txt
+        path: lts-1/nim-lang-lts-1_armhf.txt
         retention-days: 3
