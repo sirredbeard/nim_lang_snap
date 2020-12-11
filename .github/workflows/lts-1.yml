@@ -9,61 +9,123 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: sirredbeard/snap-build
+      image: ghcr.io/sirredbeard/snap-build
+
     steps:
     - uses: actions/checkout@v1
-    - name: Configure snapcraft.yaml
+    - name: Configure snapcraft.yaml with version and release URL information
       run: |
         VERSION=$(curl --silent "https://api.github.com/repos/nim-lang/Nim/tags" | jq '.[].name' | grep 'v1.0.' | awk 'min == "" || $1<min{min=$1} $1>max{max=$1} END{print max}' | tr -d 'v' | tr -d '"')
         RELEASEURL="https://github.com/nim-lang/Nim/archive/v"$VERSION".tar.gz"
         sed -i "s/VERSION/$VERSION/g" "lts-1/snap/snapcraft.yaml"
         sed -i "s*RELEASEURL*$RELEASEURL*g" "lts-1/snap/snapcraft.yaml"
-    - name: Seed remote-build credentials into container and configure git
+
+    - name: Seed remote-build credentials into container
       env:
         REMOTE_BUILD_CREDENTIALS: ${{ secrets.REMOTE_BUILD_CREDENTIALS }}
       run: |        
         mkdir -p $HOME/.local/share/snapcraft/provider/launchpad/
         echo ${REMOTE_BUILD_CREDENTIALS} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
-        git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
+
+    - name: Seed snapcraft store credentials into container
+      env:
+        SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
+      run: |
+        cd lts-1
+        mkdir .snapcraft
+        echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg 
+
     - name: Build ppc64el snap on Launchpad using remote-build 
       continue-on-error: true
       timeout-minutes: 10      
       run: |         
         cd lts-1
         snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el
+    - name: Upload ppc64el build log as artifact
+      uses: actions/upload-artifact@v2.2.1
+      with:
+        name: nim-lang-lts-1_ppc64el.txt.txt
+        path: nim-lang-lts-1_ppc64el.txt.txt
+        retention-days: 3
+    - name: Upload ppc64el snap to Snapcraft Store
+      continue-on-error: true
+      timeout-minutes: 10      
+      run: |         
+        cd lts-1
+        snapcraft upload --release=stable *ppc64el.snap
+
     - name: Build amd64 snap on Launchpad using remote-build 
       continue-on-error: true
       timeout-minutes: 10      
       run: |         
         cd lts-1
         snapcraft remote-build --launchpad-accept-public-upload --build-on=amd64
+    - name: Upload amd64 build log as artifact
+      uses: actions/upload-artifact@v2.2.1
+      with:
+        name: nim-lang-lts-1_amd64.txt.txt
+        path: nim-lang-lts-1_amd64.txt.txt
+        retention-days: 3
+    - name: Upload amd64 snap to Snapcraft Store
+      continue-on-error: true
+      timeout-minutes: 10      
+      run: |         
+        cd lts-1
+        snapcraft upload --release=stable *amd64.snap         
+
     - name: Build i386 snap on Launchpad using remote-build 
       continue-on-error: true
       timeout-minutes: 10      
       run: |         
         cd lts-1
-        snapcraft remote-build --launchpad-accept-public-upload --build-on=i386    
+        snapcraft remote-build --launchpad-accept-public-upload --build-on=i386
+    - name: Upload i386 build log as artifact
+      uses: actions/upload-artifact@v2.2.1
+      with:
+        name: nim-lang-lts-1_i386.txt
+        path: nim-lang-lts-1_i386.txt
+        retention-days: 3
+    - name: Upload i386 snap to Snapcraft Store
+      continue-on-error: true
+      timeout-minutes: 10      
+      run: |         
+        cd lts-1
+        snapcraft upload --release=stable *i386.snap                 
+
     - name: Build arm64 snap on Launchpad using remote-build 
       continue-on-error: true
       timeout-minutes: 10
       run: |         
         cd lts-1
         snapcraft remote-build --launchpad-accept-public-upload --build-on=arm64
+    - name: Upload arm64 build log as artifact
+      uses: actions/upload-artifact@v2.2.1
+      with:
+        name: nim-lang-lts-1_arm64.txt
+        path: nim-lang-lts-1_arm64.txt
+        retention-days: 3
+    - name: Upload arm64 snap to Snapcraft Store
+      continue-on-error: true
+      timeout-minutes: 10      
+      run: |         
+        cd lts-1
+        snapcraft upload --release=stable *arm64.snap                  
+
     - name: Build armhf snap on Launchpad using remote-build 
       continue-on-error: true
       timeout-minutes: 10
       run: |         
         cd lts-1
-        snapcraft remote-build --launchpad-accept-public-upload --build-on=armhf      
-    - name: Upload snaps to Snap Store
-      env:
-        SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
-      run: |
+        snapcraft remote-build --launchpad-accept-public-upload --build-on=armhf
+    - name: Upload armhf build log as artifact
+      uses: actions/upload-artifact@v2.2.1
+      with:
+        name: nim-lang-lts-1_armhf.txt
+        path: nim-lang-lts-1_armhf.txt
+        retention-days: 3
+    - name: Upload armhf snap to Snapcraft Store
+      continue-on-error: true
+      timeout-minutes: 10      
+      run: |         
         cd lts-1
-        mkdir .snapcraft
-        echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg  
-        ARCHS="ppc64el arm64 armhf amd64 i386"
-        for ARCH in ${ARCHS}; do
-          snapcraft upload --release=stable *${ARCH}.snap || continue
-        done
+        snapcraft upload --release=stable *armhf.snap                   
