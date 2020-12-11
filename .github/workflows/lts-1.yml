@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: docker.pkg.github.com/sirredbeard/snap-build/snap-build:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
     - uses: actions/checkout@v1
