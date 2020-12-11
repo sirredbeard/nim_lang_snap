@@ -28,22 +28,27 @@ jobs:
         git config --global user.name "Your Name"
     - name: Build ppc64el snap on Launchpad using remote-build 
       continue-on-error: true
+      run: |         
         cd lts-1
         snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el
     - name: Build amd64 snap on Launchpad using remote-build 
       continue-on-error: true
+      run: |         
         cd lts-1
         snapcraft remote-build --launchpad-accept-public-upload --build-on=amd64
     - name: Build i386 snap on Launchpad using remote-build 
       continue-on-error: true
+      run: |         
         cd lts-1
         snapcraft remote-build --launchpad-accept-public-upload --build-on=i386    
     - name: Build arm64 snap on Launchpad using remote-build 
       continue-on-error: true
+      run: |         
         cd lts-1
         snapcraft remote-build --launchpad-accept-public-upload --build-on=arm64
     - name: Build armhf snap on Launchpad using remote-build 
       continue-on-error: true
+      run: |         
         cd lts-1
         snapcraft remote-build --launchpad-accept-public-upload --build-on=armhf      
     - name: Upload snaps to Snap Store
