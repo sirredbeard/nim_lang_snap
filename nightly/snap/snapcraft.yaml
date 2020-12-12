@@ -59,22 +59,16 @@ parts:
         ;;
       esac
       
-      #build nim
       sh build_all.sh --os linux --cpu $arch
-
-      #cleanup misc files and set permissions
-      rm bin/empty.txt
-      chmod u+x bin/*
-
-      #prepare and copy binaries to snap
-      mkdir "$SNAPCRAFT_PART_INSTALL"/bin
+      bin/nim c koch
+      ./koch tools
+      rm -v bin/empty.txt
+      chmod -v u+x bin/*
+      mkdir -v "$SNAPCRAFT_PART_INSTALL"/bin
+      mkdir -v "$SNAPCRAFT_PART_INSTALL"/config
       cp -v bin/* "$SNAPCRAFT_PART_INSTALL"/bin
-      
-      #prepare and copy libraries to snap
-      #mkdir "$SNAPCRAFT_PART_INSTALL"/lib
-      cp -r lib/* "$SNAPCRAFT_PART_INSTALL"/lib
-
-      #copy bash completion scripts into place
+      cp -rv lib/* "$SNAPCRAFT_PART_INSTALL"/lib
+      cp -v config/* "$SNAPCRAFT_PART_INSTALL"/config
       cp -v tools/nim.bash-completion "$SNAPCRAFT_PRIME"/nim.sh
       cp -v dist/nimble/nimble.bash-completion "$SNAPCRAFT_PRIME"/nimble.sh
     build-packages:
