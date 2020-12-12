@@ -28,7 +28,7 @@ apps:
   testament:
     command: bin/testament
   nim-gdb:
-    command: bin/nim-gdb.bash    
+    command: bin/nim-gdb
 
 parts:
   nim-build:
