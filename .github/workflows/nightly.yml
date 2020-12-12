@@ -2,34 +2,105 @@ name: nightly
 on:
   push:
     branches:
-    - master
+    - main
   schedule:
    - cron: 0 22 * * *
 jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: sirredbeard/snap-build
+      image: docker.pkg.github.com/sirredbeard/snap-build/snap-build:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
     - uses: actions/checkout@v1
-    - name: Build snap on Launchpad using remote-build
+
+    - name: Seed Snapcraft remote-build credentials into container
       env:
         REMOTE_BUILD_CREDENTIALS: ${{ secrets.REMOTE_BUILD_CREDENTIALS }}
       run: |        
         mkdir -p $HOME/.local/share/snapcraft/provider/launchpad/
         echo ${REMOTE_BUILD_CREDENTIALS} | base64 --decode --ignore-garbage > $HOME/.local/share/snapcraft/provider/launchpad/credentials
-        git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
-        cd nightly
-        snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el,arm64,armhf,amd64,i386
-    - name: Upload snap to Snap Store
+
+    - name: Seed Snapcraft Store credentials into container
       env:
         SNAPCRAFT_LOGIN_FILE: ${{ secrets.SNAPCRAFT_LOGIN_FILE }}
       run: |
         cd nightly
         mkdir .snapcraft
         echo ${SNAPCRAFT_LOGIN_FILE} | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
-        ARCHS="ppc64el arm64 armhf amd64 i386"
-        for ARCH in ${ARCHS}; do
-          snapcraft upload --release=edge *${ARCH}.snap || continue
-        done
+
+    - name: Configure git global settings for snapcraft
+      run: git config --global user.email "you@example.com" && git config --global user.name "Your Name"        
+
+    - name: Build ppc64el snap on Launchpad using remote-build 
+      continue-on-error: true
+      timeout-minutes: 30   
+      run: |         
+        cd nightly
+        snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el
+        snapcraft upload --release=stable *ppc64el.snap
+    - name: Upload ppc64el build log as artifact
+      uses: actions/upload-artifact@v2.2.1
+      with:
+        name: nim-lang-nightly_ppc64el.txt
+        path: nightly/nim-lang-nightly_ppc64el.txt
+        retention-days: 3
+
+    - name: Build amd64 snap on Launchpad using remote-build 
+      continue-on-error: true
+      timeout-minutes: 30 
+      run: |         
+        cd nightly
+        snapcraft remote-build --launchpad-accept-public-upload --build-on=amd64
+        snapcraft upload --release=stable *amd64.snap 
+    - name: Upload amd64 build log as artifact
+      uses: actions/upload-artifact@v2.2.1
+      with:
+        name: nim-lang-nightly_amd64.txt
+        path: nightly/nim-lang-nightly_amd64.txt
+        retention-days: 3
+
+    - name: Build i386 snap on Launchpad using remote-build 
+      continue-on-error: true
+      timeout-minutes: 30
+      run: |
+        cd nightly
+        snapcraft remote-build --launchpad-accept-public-upload --build-on=i386
+        snapcraft upload --release=stable *i386.snap
+    - name: Upload i386 build log as artifact
+      uses: actions/upload-artifact@v2.2.1
+      with:
+        name: nim-lang-nightly_i386.txt
+        path: nightly/nim-lang-nightly_i386.txt
+        retention-days: 3                  
+
+    - name: Build arm64 snap on Launchpad using remote-build 
+      continue-on-error: true
+      timeout-minutes: 30
+      run: |         
+        cd nightly
+        snapcraft remote-build --launchpad-accept-public-upload --build-on=arm64
+        snapcraft upload --release=stable *arm64.snap 
+    - name: Upload arm64 build log as artifact
+      uses: actions/upload-artifact@v2.2.1
+      with:
+        name: nim-lang-nightly_arm64.txt
+        path: nightly/nim-lang-nightly_arm64.txt
+        retention-days: 3                  
+
+    - name: Build armhf snap on Launchpad using remote-build 
+      continue-on-error: true
+      timeout-minutes: 30
+      run: |         
+        cd nightly
+        snapcraft remote-build --launchpad-accept-public-upload --build-on=armhf
+        snapcraft upload --release=stable *armhf.snap  
+    - name: Upload armhf build log as artifact
+      uses: actions/upload-artifact@v2.2.1
+      with:
+        name: nim-lang-nightly_armhf.txt
+        path: nightly/nim-lang-nightly_armhf.txt
+        retention-days: 3

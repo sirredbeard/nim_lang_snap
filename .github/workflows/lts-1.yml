@@ -4,7 +4,7 @@ on:
     branches:
     - main
   schedule:
-   - cron: 0 22 * * *
+   - cron: 0 2 * * *
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,6 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+
     - name: Configure snapcraft.yaml with version and release URL information
       run: |
         VERSION=$(curl --silent "https://api.github.com/repos/nim-lang/Nim/tags" | jq '.[].name' | grep 'v1.0.' | awk 'min == "" || $1<min{min=$1} $1>max{max=$1} END{print max}' | tr -d 'v' | tr -d '"')
@@ -23,7 +24,7 @@ jobs:
         sed -i "s/VERSION/$VERSION/g" "lts-1/snap/snapcraft.yaml"
         sed -i "s*RELEASEURL*$RELEASEURL*g" "lts-1/snap/snapcraft.yaml"
 
-    - name: Seed remote-build credentials into container
+    - name: Seed Snapcraft remote-build credentials into container
       env:
         REMOTE_BUILD_CREDENTIALS: ${{ secrets.REMOTE_BUILD_CREDENTIALS }}
       run: |        
@@ -72,7 +73,7 @@ jobs:
     - name: Build i386 snap on Launchpad using remote-build 
       continue-on-error: true
       timeout-minutes: 30
-      run: |         
+      run: |
         cd lts-1
         snapcraft remote-build --launchpad-accept-public-upload --build-on=i386
         snapcraft upload --release=stable *i386.snap
