@@ -74,7 +74,13 @@ Nightly will be `nim-lang-night.*` and LTS will be `nim-lang-lts-1.*`.
 
 ### Aliases
 
-You can use snap to create aliases for more common names:
+You can use snap to create shorter aliases:
+
+```bash
+sudo snap alias nim-lang.nim nim
+```
+
+Or you can set aliases for all nim programs using:
 
 ```bash
 sudo bash -c 'snap alias nim-lang.nim nim ;\
