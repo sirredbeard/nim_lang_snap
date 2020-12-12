@@ -84,16 +84,15 @@ Or you can set aliases for all nim programs using:
 
 ```bash
 sudo bash -c 'snap alias nim-lang.nim nim ;\
-    snap alias nim-lang.nimcsources nimcsources ;\
-    snap alias nim-lang.nimgdb nimgdb ;\
+    snap alias nim-lang.nim_csources nim_csources ;\
+    snap alias nim-lang.nim-gdb nim-gdb ;\
     snap alias nim-lang.nimpretty nimpretty ;\
      snap alias nim-lang.testament testament ;\
      snap alias nim-lang.nimble nimble ;\
      snap alias nim-lang.nimfind nimfind ;\
      snap alias nim-lang.nimgrep nimgrep ;\
-     snap alias nim-lang.nimsuggest nimsuggest'
+     snap alias nim-lang.nimsuggest nimsuggest ;\'
 ```
-
 
 ## Repository Files
 
