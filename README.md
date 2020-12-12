@@ -24,7 +24,7 @@ For a technical walkthrough of how this repository works, see [my blog post](htt
 
 Recommended for most users.
 
-Install from the command line with: `$ snap install nim-lang`
+Install from the command line with: `$ snap install nim-lang --classic`
 
 Run with `$ nim-lang.nim c helloworld.nim`, see [Running Nim from Snap packages](#running-nim-from-snap-packages) below.
 
@@ -38,7 +38,7 @@ See [Installing Snapd](https://snapcraft.io/docs/installing-snapd) if you do not
 
 Recommended for Nim applications targeted to the [LTS 1.0.x LTS branch](https://nim-lang.org/blog/2019/09/23/version-100-released.html).
 
-`$ snap install nim-lang-lts-1`
+`$ snap install nim-lang-lts-1 --classic`
 
 [Snapcraft Store](https://snapcraft.io/nim-lang-lts-1)
 
@@ -48,7 +48,7 @@ Recommended for Nim applications targeted to the [LTS 1.0.x LTS branch](https://
 
 Recommended for testing nightly builds of Nim. Likely contains bugs.
 
-`$ snap install nim-lang-nightly`
+`$ snap install nim-lang-nightly --classic --edge`
 
 [Snapcraft Store](https://snapcraft.io/nim-lang-nightly)
 
@@ -70,7 +70,7 @@ nim-lang.nimgrep
 nim-lang.nimsuggest
 ```
 
-Nightly will be `nim-lang-night.*` and LTS will be `nim-lang-lts-1.*`.
+Nightly will be `nim-lang-nightly.*` and LTS will be `nim-lang-lts-1.*`.
 
 ### Aliases
 
