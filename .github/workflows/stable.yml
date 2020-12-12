@@ -46,20 +46,6 @@ jobs:
     - name: Configure git global settings for snapcraft
       run: git config --global user.email "you@example.com" && git config --global user.name "Your Name"
 
-    - name: Build ppc64el snap on Launchpad using remote-build and then upload to Snapcraft.io
-      continue-on-error: true
-      timeout-minutes: 60
-      run: |         
-        cd stable
-        snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el
-        snapcraft upload --release=stable *ppc64el.snap
-    - name: Upload ppc64el build log as artifact
-      uses: actions/upload-artifact@v2.2.1
-      with:
-        name: nim-lang-stable_ppc64el.txt
-        path: stable/nim-lang_ppc64el.txt
-        retention-days: 3
-
     - name: Build amd64 snap on Launchpad using remote-build and then upload to Snapcraft.io
       continue-on-error: true
       timeout-minutes: 60
@@ -72,6 +58,20 @@ jobs:
       with:
         name: nim-lang-stable_amd64.txt
         path: stable/nim-lang_amd64.txt
+        retention-days: 3
+
+    - name: Build ppc64el snap on Launchpad using remote-build and then upload to Snapcraft.io
+      continue-on-error: true
+      timeout-minutes: 60
+      run: |         
+        cd stable
+        snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el
+        snapcraft upload --release=stable *ppc64el.snap
+    - name: Upload ppc64el build log as artifact
+      uses: actions/upload-artifact@v2.2.1
+      with:
+        name: nim-lang-stable_ppc64el.txt
+        path: stable/nim-lang_ppc64el.txt
         retention-days: 3
 
     - name: Build i386 snap on Launchpad using remote-build and then upload to Snapcraft.io
