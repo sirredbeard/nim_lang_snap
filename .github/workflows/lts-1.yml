@@ -86,7 +86,7 @@ jobs:
 
     - name: Build arm64 snap on Launchpad using remote-build and then upload to Snapcraft.io
       continue-on-error: true
-      timeout-minutes: 60
+      timeout-minutes: 120
       run: |         
         cd lts-1
         snapcraft remote-build --launchpad-accept-public-upload --build-on=arm64
@@ -100,7 +100,7 @@ jobs:
 
     - name: Build armhf snap on Launchpad using remote-build and then upload to Snapcraft.io
       continue-on-error: true
-      timeout-minutes: 60
+      timeout-minutes: 120
       run: |         
         cd lts-1
         snapcraft remote-build --launchpad-accept-public-upload --build-on=armhf
