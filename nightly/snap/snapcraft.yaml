@@ -15,7 +15,7 @@ apps:
   nimble:
     command: bin/nimble --nim:$SNAP/bin/nim 
     completer: nimble.sh
-  nim_csources:
+  nimcsources:
     command: bin/nim_csources
   nimfind:
     command: bin/nimfind
