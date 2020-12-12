@@ -46,7 +46,7 @@ jobs:
     - name: Configure git global settings for snapcraft
       run: git config --global user.email "you@example.com" && git config --global user.name "Your Name"
 
-    - name: Build ppc64el snap on Launchpad using remote-build 
+    - name: Build ppc64el snap on Launchpad using remote-build and then upload to Snapcraft.io
       continue-on-error: true
       timeout-minutes: 60
       run: |         
@@ -60,7 +60,7 @@ jobs:
         path: stable/nim-lang_ppc64el.txt
         retention-days: 3
 
-    - name: Build amd64 snap on Launchpad using remote-build 
+    - name: Build amd64 snap on Launchpad using remote-build and then upload to Snapcraft.io
       continue-on-error: true
       timeout-minutes: 60
       run: |         
@@ -74,7 +74,7 @@ jobs:
         path: stable/nim-lang_amd64.txt
         retention-days: 3
 
-    - name: Build i386 snap on Launchpad using remote-build 
+    - name: Build i386 snap on Launchpad using remote-build and then upload to Snapcraft.io
       continue-on-error: true
       timeout-minutes: 60
       run: |
@@ -88,7 +88,7 @@ jobs:
         path: stable/nim-lang_i386.txt
         retention-days: 3                  
 
-    - name: Build arm64 snap on Launchpad using remote-build 
+    - name: Build arm64 snap on Launchpad using remote-build and then upload to Snapcraft.io
       continue-on-error: true
       timeout-minutes: 60
       run: |         
@@ -102,7 +102,7 @@ jobs:
         path: stable/nim-lang_arm64.txt
         retention-days: 3                  
 
-    - name: Build armhf snap on Launchpad using remote-build 
+    - name: Build armhf snap on Launchpad using remote-build and then upload to Snapcraft.io
       continue-on-error: true
       timeout-minutes: 60
       run: |         
