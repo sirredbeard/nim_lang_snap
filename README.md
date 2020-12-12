@@ -84,7 +84,7 @@ Or you can set aliases for all nim programs using:
 
 ```bash
 sudo bash -c 'snap alias nim-lang.nim nim ;\
-    snap alias nim-lang.nim_csources nim_csources ;\
+    snap alias nim-lang.nimcsources nim_csources ;\
     snap alias nim-lang.nim-gdb nim-gdb ;\
     snap alias nim-lang.nimpretty nimpretty ;\
      snap alias nim-lang.testament testament ;\
