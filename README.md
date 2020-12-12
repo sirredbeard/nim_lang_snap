@@ -48,7 +48,7 @@ Recommended for Nim applications targeted to the [LTS 1.0.x LTS branch](https://
 
 Recommended for testing nightly builds of Nim. Likely contains bugs.
 
-`$ snap install nim-lang-nightly --classic`
+`$ snap install nim-lang-nightly --classic --edge`
 
 [Snapcraft Store](https://snapcraft.io/nim-lang-nightly)
 
@@ -70,7 +70,7 @@ nim-lang.nimgrep
 nim-lang.nimsuggest
 ```
 
-Nightly will be `nim-lang-night.*` and LTS will be `nim-lang-lts-1.*`.
+Nightly will be `nim-lang-nightly.*` and LTS will be `nim-lang-lts-1.*`.
 
 ### Aliases
 
