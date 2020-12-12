@@ -87,11 +87,11 @@ sudo bash -c 'snap alias nim-lang.nim nim ;\
     snap alias nim-lang.nimcsources nim_csources ;\
     snap alias nim-lang.nim-gdb nim-gdb ;\
     snap alias nim-lang.nimpretty nimpretty ;\
-     snap alias nim-lang.testament testament ;\
-     snap alias nim-lang.nimble nimble ;\
-     snap alias nim-lang.nimfind nimfind ;\
-     snap alias nim-lang.nimgrep nimgrep ;\
-     snap alias nim-lang.nimsuggest nimsuggest ;\'
+    snap alias nim-lang.testament testament ;\
+    snap alias nim-lang.nimble nimble ;\
+    snap alias nim-lang.nimfind nimfind ;\
+    snap alias nim-lang.nimgrep nimgrep ;\
+    snap alias nim-lang.nimsuggest nimsuggest ;\'
 ```
 
 ## Repository Files
