@@ -37,7 +37,7 @@ jobs:
 
     - name: Build ppc64el snap on Launchpad using remote-build 
       continue-on-error: true
-      timeout-minutes: 30   
+      timeout-minutes: 60
       run: |         
         cd nightly
         snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el
@@ -51,7 +51,7 @@ jobs:
 
     - name: Build amd64 snap on Launchpad using remote-build 
       continue-on-error: true
-      timeout-minutes: 30 
+      timeout-minutes: 60
       run: |         
         cd nightly
         snapcraft remote-build --launchpad-accept-public-upload --build-on=amd64
@@ -65,7 +65,7 @@ jobs:
 
     - name: Build i386 snap on Launchpad using remote-build 
       continue-on-error: true
-      timeout-minutes: 30
+      timeout-minutes: 60
       run: |
         cd nightly
         snapcraft remote-build --launchpad-accept-public-upload --build-on=i386
@@ -79,7 +79,7 @@ jobs:
 
     - name: Build arm64 snap on Launchpad using remote-build 
       continue-on-error: true
-      timeout-minutes: 30
+      timeout-minutes: 60
       run: |         
         cd nightly
         snapcraft remote-build --launchpad-accept-public-upload --build-on=arm64
@@ -93,7 +93,7 @@ jobs:
 
     - name: Build armhf snap on Launchpad using remote-build 
       continue-on-error: true
-      timeout-minutes: 30
+      timeout-minutes: 60
       run: |         
         cd nightly
         snapcraft remote-build --launchpad-accept-public-upload --build-on=armhf
