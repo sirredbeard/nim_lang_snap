@@ -16,7 +16,7 @@ A snap is a bundle of an app and its dependencies that works without modificatio
 * [Documentation](https://snapcraft.io/docs) - Documentation
 * [Snapcraft Store](https://snapcraft.io/store) - Snap app store
 
-For a technical walkthrough of how this repository works, see [my blog post](boxofcables.dev/snaps-for-nim/).
+For a technical walkthrough of how this repository works, see [my blog post](https://boxofcables.dev/snaps-for-nim/).
 
 ## Branches
 
@@ -26,15 +26,13 @@ Recommended for most users.
 
 Install from the command line with: `$ snap install nim-lang`
 
-[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/nim-lang)
+Run with `$ nim-lang.nim c helloworld.nim`, see [Running Nim from Snap packages](#running-nim-from-snap-packages) below.
 
-Or visit the [Snapcraft Store](https://snapcraft.io/nim-lang).
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/nim-lang) Or visit the [Snapcraft Store](https://snapcraft.io/nim-lang).
 
 See [Installing Snapd](https://snapcraft.io/docs/installing-snapd) if you do not have snap installed.
 
-![stable status](https://github.com/sirredbeard/nim_lang_snap/workflows/stable/badge.svg)
-
-[![nim-lang](https://snapcraft.io/nim-lang/badge.svg)](https://snapcraft.io/nim-lang)
+![stable status](https://github.com/sirredbeard/nim_lang_snap/workflows/stable/badge.svg) [![nim-lang](https://snapcraft.io/nim-lang/badge.svg)](https://snapcraft.io/nim-lang)
 
 ### LTS 1.0.x
 
@@ -44,9 +42,7 @@ Recommended for Nim applications targeted to the [LTS 1.0.x LTS branch](https://
 
 [Snapcraft Store](https://snapcraft.io/nim-lang-lts-1)
 
-![lts status](https://github.com/sirredbeard/nim_lang_snap/workflows/lts-1/badge.svg)
-
-[![nim-lang-lts-1](https://snapcraft.io/nim-lang-lts-1/badge.svg)](https://snapcraft.io/nim-lang-lts-1)
+![lts status](https://github.com/sirredbeard/nim_lang_snap/workflows/lts-1/badge.svg) [![nim-lang-lts-1](https://snapcraft.io/nim-lang-lts-1/badge.svg)](https://snapcraft.io/nim-lang-lts-1)
 
 ### Nightly
 
@@ -56,9 +52,42 @@ Recommended for testing nightly builds of Nim. Likely contains bugs.
 
 [Snapcraft Store](https://snapcraft.io/nim-lang-nightly)
 
-![nightly status](https://github.com/sirredbeard/nim_lang_snap/workflows/nightly/badge.svg)
+![nightly status](https://github.com/sirredbeard/nim_lang_snap/workflows/nightly/badge.svg) [![nim-lang-nightly](https://snapcraft.io/nim-lang-nightly/badge.svg)](https://snapcraft.io/nim-lang-nightly)
 
-[![nim-lang-nightly](https://snapcraft.io/nim-lang-nightly/badge.svg)](https://snapcraft.io/nim-lang-nightly)
+## Running Nim from Snap packages
+
+Once installed, stable binaries can be called as:
+
+```bash
+nim-lang.nim
+nim-lang.nimcsources
+nim-lang.nimgdb
+nim-lang.nimpretty
+nim-lang.testament
+nim-lang.nimble
+nim-lang.nimfind
+nim-lang.nimgrep
+nim-lang.nimsuggest
+```
+
+Nightly will be `nim-lang-night.*` and LTS will be `nim-lang-lts-1.*`.
+
+### Aliases
+
+You can use snap to create aliases for more common names:
+
+```bash
+sudo bash -c 'snap alias nim-lang.nim nim ;\
+    snap alias nim-lang.nimcsources nimcsources ;\
+    snap alias nim-lang.nimgdb nimgdb ;\
+    snap alias nim-lang.nimpretty nimpretty ;\
+     snap alias nim-lang.testament testament ;\
+     snap alias nim-lang.nimble nimble ;\
+     snap alias nim-lang.nimfind nimfind ;\
+     snap alias nim-lang.nimgrep nimgrep ;\
+     snap alias nim-lang.nimsuggest nimsuggest'
+```
+
 
 ## Repository Files
 
@@ -89,50 +118,6 @@ Recommended for testing nightly builds of Nim. Likely contains bugs.
 /nightly/snap/
 
 * [snapcraft.yaml](https://github.com/sirredbeard/nim_lang_snap/blob/master/nightly/snap/snapcraft.yaml) - Nim nightly snap file,
-
-## Advanced Usage
-
-### Installation
-
-`$ snap install nim-lang`
-
-### Binaries
-
-Once installed, Stable binaries can be called as:
-
-```bash
-nim-lang.nim
-nim-lang.nimcsources
-nim-lang.nimgdb
-nim-lang.nimpretty
-nim-lang.testament
-nim-lang.nimble
-nim-lang.nimfind
-nim-lang.nimgrep
-nim-lang.nimsuggest
-```
-
-Nightly will be nim-lang-night.* and LTS will be nim-lang-lts-1.*.
-
-### Compilers
-
-Snaps include the latest gcc and clang from the Core18 distribution.
-
-### Aliases
-
-You can use snap to create aliases for more common names:
-
-```bash
-sudo bash -c 'snap alias nim-lang.nim nim ;\
-    snap alias nim-lang.nimcsources nimcsources ;\
-    snap alias nim-lang.nimgdb nimgdb ;\
-    snap alias nim-lang.nimpretty nimpretty ;\
-     snap alias nim-lang.testament testament ;\
-     snap alias nim-lang.nimble nimble ;\
-     snap alias nim-lang.nimfind nimfind ;\
-     snap alias nim-lang.nimgrep nimgrep ;\
-     snap alias nim-lang.nimsuggest nimsuggest'
-```
 
 ## Issues
 
