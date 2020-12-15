@@ -41,7 +41,7 @@ jobs:
       run: |         
         cd nightly
         snapcraft remote-build --launchpad-accept-public-upload --build-on=amd64
-        snapcraft upload --release=stable *amd64.snap 
+        snapcraft upload --release=edge *amd64.snap 
     - name: Upload amd64 build log as artifact
       uses: actions/upload-artifact@v2.2.1
       with:
@@ -55,7 +55,7 @@ jobs:
       run: |         
         cd nightly
         snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el
-        snapcraft upload --release=stable *ppc64el.snap
+        snapcraft upload --release=edge *ppc64el.snap
     - name: Upload ppc64el build log as artifact
       uses: actions/upload-artifact@v2.2.1
       with:
@@ -69,7 +69,7 @@ jobs:
       run: |
         cd nightly
         snapcraft remote-build --launchpad-accept-public-upload --build-on=i386
-        snapcraft upload --release=stable *i386.snap
+        snapcraft upload --release=edge *i386.snap
     - name: Upload i386 build log as artifact
       uses: actions/upload-artifact@v2.2.1
       with:
@@ -83,7 +83,7 @@ jobs:
       run: |         
         cd nightly
         snapcraft remote-build --launchpad-accept-public-upload --build-on=arm64
-        snapcraft upload --release=stable *arm64.snap 
+        snapcraft upload --release=edge *arm64.snap 
     - name: Upload arm64 build log as artifact
       uses: actions/upload-artifact@v2.2.1
       with:
@@ -97,7 +97,7 @@ jobs:
       run: |         
         cd nightly
         snapcraft remote-build --launchpad-accept-public-upload --build-on=armhf
-        snapcraft upload --release=stable *armhf.snap  
+        snapcraft upload --release=edge *armhf.snap  
     - name: Upload armhf build log as artifact
       uses: actions/upload-artifact@v2.2.1
       with:
