@@ -58,20 +58,20 @@ jobs:
       with:
         name: nim-lang-stable_amd64.txt
         path: stable/nim-lang_amd64.txt
-        retention-days: 3
+        retention-days: 3           
 
-    - name: Build ppc64el snap on Launchpad using remote-build and then upload to Snapcraft.io
+    - name: Build arm64 snap on Launchpad using remote-build and then upload to Snapcraft.io
       continue-on-error: true
-      timeout-minutes: 60
+      timeout-minutes: 120
       run: |         
         cd stable
-        snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el
-        snapcraft upload --release=stable *ppc64el.snap
-    - name: Upload ppc64el build log as artifact
+        snapcraft remote-build --launchpad-accept-public-upload --build-on=arm64
+        snapcraft upload --release=stable *arm64.snap 
+    - name: Upload arm64 build log as artifact
       uses: actions/upload-artifact@v2.2.1
       with:
-        name: nim-lang-stable_ppc64el.txt
-        path: stable/nim-lang_ppc64el.txt
+        name: nim-lang-stable_arm64.txt
+        path: stable/nim-lang_arm64.txt
         retention-days: 3
 
     - name: Build i386 snap on Launchpad using remote-build and then upload to Snapcraft.io
@@ -86,21 +86,7 @@ jobs:
       with:
         name: nim-lang-stable_i386.txt
         path: stable/nim-lang_i386.txt
-        retention-days: 3                  
-
-    - name: Build arm64 snap on Launchpad using remote-build and then upload to Snapcraft.io
-      continue-on-error: true
-      timeout-minutes: 120
-      run: |         
-        cd stable
-        snapcraft remote-build --launchpad-accept-public-upload --build-on=arm64
-        snapcraft upload --release=stable *arm64.snap 
-    - name: Upload arm64 build log as artifact
-      uses: actions/upload-artifact@v2.2.1
-      with:
-        name: nim-lang-stable_arm64.txt
-        path: stable/nim-lang_arm64.txt
-        retention-days: 3                  
+        retention-days: 3
 
     - name: Build armhf snap on Launchpad using remote-build and then upload to Snapcraft.io
       continue-on-error: true
@@ -115,3 +101,17 @@ jobs:
         name: nim-lang-stable_armhf.txt
         path: stable/nim-lang_armhf.txt
         retention-days: 3
+        
+    - name: Build ppc64el snap on Launchpad using remote-build and then upload to Snapcraft.io
+      continue-on-error: true
+      timeout-minutes: 60
+      run: |         
+        cd stable
+        snapcraft remote-build --launchpad-accept-public-upload --build-on=ppc64el
+        snapcraft upload --release=stable *ppc64el.snap
+    - name: Upload ppc64el build log as artifact
+      uses: actions/upload-artifact@v2.2.1
+      with:
+        name: nim-lang-stable_ppc64el.txt
+        path: stable/nim-lang_ppc64el.txt
+        retention-days: 3      
