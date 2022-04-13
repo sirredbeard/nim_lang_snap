@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: docker.pkg.github.com/sirredbeard/snap-build/snap-build:latest
+      image: ghcr.io/sirredbeard/snap-build-2004/snap-build-2004:main
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
